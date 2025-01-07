@@ -1,0 +1,57 @@
+<div class="columnTitleDiv">
+    <div class="boardRubrikHead">
+        <a class="boardRubrikTitle">To do</a>
+        <button onclick="boardAddTask()" class="cursor addSubTaskBtn"></button>
+    </div>
+    <div class="boardRubrikHead">
+        <a class="boardRubrikTitle">In progress</a>
+        <button onclick="boardAddTask()" class="cursor addSubTaskBtn"></button>
+    </div>
+    <div class="boardRubrikHead">
+        <a class="boardRubrikTitle">Await feedback</a>
+        <button onclick="boardAddTask()" class="cursor addSubTaskBtn"></button>
+    </div>
+    <div class="boardRubrikHead">
+        <a class="boardRubrikTitle">Done</a>
+    </div>
+</div>
+
+
+
+
+
+function emptyTaskLists() {
+    toDoList = [];
+    inProgressList = [];
+    inAwaitList = [];
+    inDoneList = [];
+    //toDoList.push(htmlTaskListHeadLineToDo());
+    //inProgressList.push(htmlTaskListHeadLineProgress());
+    //inAwaitList.push(htmlTaskListHeadLineAwaitFeedback()); 
+    //inDoneList.push(htmlTaskListHeadLineDone());
+}
+
+
+
+/**
+ * Builds the head task dashboard with the searchbar, add task button and column titles
+ * 
+ * @returns - html for the head of task dashboard
+ */
+function buildTaskBoardHead() {
+    return /* html */ `
+    <div class="boardHeadDiv">
+        <div class="headLine_searchBar">
+            <a class="headLineText">Board</a>                  
+            <div class="searchContainerAndAddTaskBtn">
+                <div class="searchContainer">
+                    <input type="text" placeholder="Find Task" class="inputSearch cursor" id="searchInput" oninput="debounce(runSearchTask, 300)()">
+                    <img class="cursor" src="./assets/img/searchButton.svg">
+                </div>
+                <a onclick="boardAddTask()" class='addTaskBoardBtn cursor'></a>
+            </div>
+        </div>
+    </div>  
+        <div id="boardTaskList" class="boardTasksDiv"> 
+    `;
+}

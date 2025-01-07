@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0 auto;
+    font-family: Inter, sans-serif;
+}
+
+
+.user_story_bg {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.show_user_story {
+    transform: translateX(0);
+    transition: all 225ms ease-in-out;
+}
+
+
+.hide_user_story {
+    transform: translateX(700%);
+    transition: all 225ms ease-in-out;
+}
+
+
+.main_div {
+    padding: 48px 40px 48px 40px;
+    max-width: 525px;
+    width: 100%;
+    height: 931px;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    position: absolute;
+}
+
+
+.header {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.d-none {
+    display: none;
+}
+
+
+.cursor {
+    cursor: pointer;
+}
+
+
+.box_blue {
+    max-width: 164px;
+    width: 100%;
+    background-color: #0038FF;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 23px;
+    font-weight: 400;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+.close_button {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.close_button:hover {
+    background-color: #D9D9D9;
+}
+
+
+.description {
+    width: 100%;
+    height: 219px;
+    font-size: 61px;
+    font-weight: 700;
+}
+
+
+p {
+    margin: 0;
+}
+
+
+.div-headers {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 400;
+    gap: 25px;
+}
+
+
+.assigned_users_div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.user_div {
+    width: 100%;
+    padding-top: 4px;
+}
+
+
+.subtasks_div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    gap: 4px;
+}
+
+
+.checkbox_div {
+    width: 100%;
+    padding: 6px 16px 6px 16px;
+    display: flex;
+    align-items: center;
+}
+
+
+.checkbox_div:hover {
+    background-color: #d9d9d9;
+    border-radius: 10px;
+}
+
+
+.checkbox_text {
+    font-size: 16px;
+    font-weight: 400;
+    padding-left: 16px;
+}
+
+
+.delete_edit_div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #2A3647;
+}
+
+
+.delete_button,
+.edit_button {
+    width: 81px;
+    height: 24px;
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+
+.border {
+    border: 1px solid #D9D9D9;
+    height: 24px;
+    width: 1px;
+}
+
+
+.hover:hover {
+    color: #28ABE2;
+    font-weight: 600;
+}

@@ -1,0 +1,206 @@
+{
+  "0": {
+    "date": "2023-05-01",
+    "description": "Build start page with recipe recommendation...",
+    "id": 0,
+    "name": "Kochwelt Page & Recipe Recommender",
+    "prio": "low",
+    "status": "await",
+    "subtasks": [
+      {
+        "status": "done",
+        "subtaskname": "kochen"
+      },
+      {
+        "status": "open",
+        "subtaskname": "build html template"
+      }
+    ],
+    "type": "technical",
+    "users": [
+      "ad8191e212",
+      "ad8191ae",
+      "ad819123"
+    ]
+  },
+  "1": {
+    "date": "2028-08-01",
+    "description": "Build HTML base template and import in project",
+    "id": 1,
+    "name": "HTML Base Template Creation",
+    "prio": "low",
+    "status": "progress",
+    "subtasks": [
+      {
+        "status": "done",
+        "subtaskname": "create html content"
+      },
+      {
+        "status": "open",
+        "subtaskname": "upload template in project"
+      }
+    ],
+    "type": "technical",
+    "users": [
+      "ad8191e212"
+    ]
+  },
+  "2": {
+    "date": "2025-04-01",
+    "description": "deploy the project state to test environment",
+    "id": 2,
+    "name": "Deploy test environment",
+    "prio": "low",
+    "status": "todo",
+    "subtasks": [
+      {
+        "status": "open",
+        "subtaskname": "create system snapshots"
+      },
+      {
+        "status": "open",
+        "subtaskname": "deploy the project to server"
+      },
+      {
+        "status": "open",
+        "subtaskname": "inform test users about update"
+      }
+    ],
+    "type": "technical",
+    "users": [
+      "ad8191e212",
+      "ad8191ae",
+      "ad819123"
+    ]
+  },
+  "3": {
+    "date": "2025-05-03",
+    "description": "CSS Architecture Planing",
+    "id": 0,
+    "name": "Define CSS naming conventions",
+    "prio": "high",
+    "status": "todo",
+    "subtasks": [
+      {
+        "status": "done",
+        "subtaskname": "kochen"
+      },
+      {
+        "status": "done",
+        "subtaskname": "build html template"
+      }
+    ],
+    "type": "userstory",
+    "users": [
+      "ad8191e212",
+      "ad8191ae"
+    ]
+  },
+  "4": {
+    "date": "2024-05-01",
+    "description": "CSS Architecture Planing",
+    "id": 0,
+    "name": "Define CSS naming .",
+    "prio": "high",
+    "status": "done",
+    "subtasks": [
+      {
+        "status": "done",
+        "subtaskname": "kochen"
+      },
+      {
+        "status": "done",
+        "subtaskname": "build html template"
+      }
+    ],
+    "type": "userstory",
+    "users": [
+      "ad8191e212",
+      "ad819123"
+    ]
+  },
+  "5": {
+    "date": "2024-11-05",
+    "description": "Build a perfect Join version",
+    "id": 1,
+    "name": "Testing of Join",
+    "prio": "medium",
+    "status": "await",
+    "subtasks": [
+      {
+        "status": "done",
+        "subtaskname": "create html content"
+      },
+      {
+        "status": "open",
+        "subtaskname": "discust the project"
+      },
+      {
+        "status": "done",
+        "subtaskname": "mark as completed"
+      },
+      {
+        "status": "open",
+        "subtaskname": "upload template in project"
+      }
+    ],
+    "type": "userstory",
+    "users": [
+      "ad8191e212"
+    ]
+  },
+  "6": {
+    "date": "2026-03-01",
+    "description": "Build a perfect Join version",
+    "id": 1,
+    "name": "Build and commit a full  join",
+    "prio": "medium",
+    "status": "done",
+    "subtasks": [
+      {
+        "status": "done",
+        "subtaskname": "create html content"
+      },
+      {
+        "status": "open",
+        "subtaskname": "discust the project"
+      },
+      {
+        "status": "done",
+        "subtaskname": "mark as completed"
+      },
+      {
+        "status": "open",
+        "subtaskname": "upload template in project"
+      }
+    ],
+    "type": "userstory",
+    "users": [
+      "ad8191e212"
+    ]
+  },
+  "-O7TqzPD6BpVgomC7GaZ": {
+    "date": "2025-01-01",
+    "description": "TEST",
+    "id": 0,
+    "name": "Go",
+    "prio": "low",
+    "status": "progress",
+    "subtasks": [
+      {
+        "status": "done",
+        "subtaskname": "kochen"
+      },
+      {
+        "status": "open",
+        "subtaskname": "build html template"
+      }
+    ],
+    "type": "userstory",
+    "users": [
+      "ad8191e212",
+      "ad8191ae",
+      "ad819123"
+    ]
+  }
+}

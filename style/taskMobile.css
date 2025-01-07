@@ -1,0 +1,192 @@
+@media (max-width: 1400px) {
+    .addTaskContent {
+        display: flex;
+        justify-content: center;
+        padding: 80px 0 0 0;
+    }
+
+
+    .task-input-container {
+        justify-content: center;
+    }
+
+
+    .task-form {
+        padding: 0;
+        align-items: center;
+    }
+
+
+    .addTaskHeadline {
+        padding-top: 48px;
+        padding-bottom: 32px;
+    }
+
+
+    .addTaskHeadlineDiv {
+        /* width: 888px; */
+        max-width: 980px;
+        width: 100%;
+    }
+
+
+    .priority-buttons button {
+        width: 122px;
+        height: 41px;
+    }
+}
+
+
+@media (max-width: 1020px) {
+    .addTaskHeadlineDiv {
+        width: 440px;
+    }
+
+
+    .task-input-container {
+        flex-direction: column;
+        overflow: scroll;
+
+
+    .navBarMobile {
+        z-index: 10;
+    }
+
+
+    .task-separater {
+        display: none;
+    }
+
+
+    .note_text {
+        display: none;
+    }
+
+
+    .note_text_hidden {
+        display: flex;
+        font-size: 16px;
+        padding-top: 20px;
+        padding-bottom: 80px;
+    }
+
+
+    .selected-contacts {
+        position: relative !important;
+    }
+
+
+    .actions {
+        margin-bottom: 82px;
+        padding: 12px 16px 12px 0;
+        position: fixed;
+        bottom: -2px;
+        right: 0;
+        background-color: #F6F7F8;
+        z-index: 2;
+        width: 100%;
+    }
+
+
+    #subtask-list {
+        position: relative !important;
+    }
+
+    .task-right-column {
+        padding-top: 30px;
+    }
+}
+
+
+@media(max-width: 500px) {
+
+    .addTaskHeadlineDiv,
+    .dropdown-options-category,
+    .dropdown-option,
+    .selected-contacts,
+    .dropdown-options {
+        max-width: 396px;
+    }
+
+
+    .dropdown-options {
+        max-width: 396px !important;
+    }
+
+
+    .task-left-column,
+    .task-right-column,
+    .custom-dropdown {
+        max-width: 396px;
+        font-size: 16px;
+    }
+
+
+    .task-input input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+
+    .priority-buttons button {
+        font-size: 16px;
+        gap: 0;
+    }
+
+
+    .selected-User {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 14px !important;
+    }
+}
+
+
+@media (max-width: 415px) {
+
+    .task-left-column,
+    .task-right-column,
+    .custom-dropdown,
+    .addTaskHeadlineDiv,
+    .custom-dropdown,
+    .dropdown-options-category,
+    .dropdown-option {
+        max-width: 300px;
+    }
+
+
+    .dropdown-options {
+        max-width: 300px !important;
+    }
+
+
+    .clear_button {
+        width: 95px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+
+    .create-task {
+        width: 140px;
+        font-size: 16px;
+    }
+
+
+    .priority-buttons button {
+        width: 95px;
+        height: 41px;
+        gap: 0;
+    }
+
+
+    .popup-sign {
+        max-width: 306px;
+    }
+
+
+    .selected-contacts {
+        width: 300px;
+    }
+}

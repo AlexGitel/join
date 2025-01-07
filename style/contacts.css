@@ -1,0 +1,310 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.mainPage {
+    display: flex;
+    height: 100%;
+}
+
+
+.contactsPage {
+    display: flex;
+    max-width: 1208px;
+    height: 100%;
+}
+
+
+.contactList {
+    background-color: #FFFFFF;
+    width: 456px;
+    box-shadow: 4px 0 6px 0px #00000014;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.addContactButtonContainer {
+    margin: 0;
+    height: 101px;
+    display: flex;
+    align-items: center;
+}
+
+
+.addNewContactButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    font-weight: 700;
+    width: 352px;
+    height: 56px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: #2A3647;
+    gap: 14px;
+    cursor: pointer;
+}
+
+
+.cursor {
+    cursor: pointer;
+}
+
+
+.hover:hover {
+    background-color: #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    transition: background-color 0.2s;
+}
+
+
+.contactsUserIconList {
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    font-size: 12px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #FFFFFF
+}
+
+
+.contactShortInfo {
+    align-items: center;
+    justify-content: flex-start;
+    height: 120px;
+    margin-top: 32px;
+    gap: 54px;
+}
+
+
+.font-size-47 {
+    font-size: 47px;
+}
+
+
+.name-size {
+    font-size: 47px;
+    font-weight: 500;
+}
+
+
+.display-flex {
+    display: flex;
+}
+
+
+.contactNameAction {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+
+.contactInfoValue {
+    font-size: 16px;
+}
+
+
+.contactInfoTitle {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.contactInfoDiv {
+    height: 53px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.contactInfoPhoneNumberDiv {
+    margin-top: 15px;
+}
+
+
+.emailAddress {
+    color: #007CEE;
+    font-size: 16px;
+}
+
+
+.contactListEntry {
+    width: 352px;
+    padding: 15px 24px 15px 24px;
+    gap: 35px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    cursor: pointer;
+}
+
+
+.contactListEntry:hover {
+    background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
+}
+
+
+.contactListEntryClicked {
+    background-color: #2A3647;
+    color: white;
+    pointer-events: none;
+}
+
+
+.contactListEntryDiv {
+    height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.contactListLetter {
+    display: flex;
+    width: 352px;
+    flex-direction: column;
+}
+
+
+.contactListLetterLine {
+    width: 352px;
+    border: 1px solid #D1D1D1;
+    margin: 7px 0 7px 0
+}
+
+
+.contactsScrollList {
+    overflow-y: auto;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.addContactOverlay {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+.font-size-p-tag {
+    font-size: 27px;
+}
+
+
+.display {
+    display: flex;
+}
+
+
+.display-block {
+    display: block !important;
+}
+
+
+.contentMainPage {
+    padding-left: 232px;
+    background-color: #F6F7F8;
+    height: 100vh;
+}
+
+
+.taskUserIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.overlay_popup_contact_created {
+    position: fixed;
+    width: 100%;
+    height: 74px;
+    right: 0;
+    bottom: 200px;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+}
+
+
+.popup_contact_created {
+    width: 326px;
+    height: 74px;
+    border-radius: 20px;
+    background-color: #2A3647;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 400;
+    z-index: 20;
+}
+
+
+.better-with-a-team-mobile {
+    display: none;
+}
+
+
+.showContactInfoCloseBtn,
+.mobileActionBtn {
+    display: none;
+}
+
+
+.dropDownContactInfo {
+    width: 116px;
+    height: 100px;
+    background-color: white;
+    color: rgba(42, 54, 71, 1);
+    position: absolute;
+    bottom: 20px;
+    right: 16px;
+    border-radius: 20px 20px 0 20px;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    padding-left: 16px;
+    z-index: 3;
+    box-shadow: 0px 0px 10px 4px #00000014;
+}
+
+.contactDropDownBtnMobile {
+    display: flex;
+    margin: 0;
+}
+
+
+.dropDownContactInfoContainer {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

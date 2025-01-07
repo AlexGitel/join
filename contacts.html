@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./js/board.js"></script>
+    <script src="./js/database.js"></script>
+    <script src="./assets/templates/board_templates.js"></script>
+    <script src="./assets/templates/contacts_template.js"></script>
+    <script src="./assets/templates/help_template.js"></script>
+    <script src="./assets/templates/drop_down_box_template.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/join.js"></script>
+
+    <link rel="icon" type="image/png" href="./assets/img/favicon.svg">
+    <link rel="stylesheet" href="./assets/fonts/fonts.css">
+    <link rel="stylesheet" href="./style/sideBar_header.css">
+    <link rel="stylesheet" href="./style/contacts.css">
+    <link rel="stylesheet" href="./style/contactsInfo.css">
+    <link rel="stylesheet" href="./style/contactsMobile.css">
+    <link rel="stylesheet" href="./style/help.css">
+    <link rel="stylesheet" href="./style/drop_down_box.css">
+    <link rel="stylesheet" href="./style/navBarMobile.css">
+    <script src="./js/logout.js"></script>
+    <script src="./js/navigation.js"></script>
+
+    <title>Join</title>
+
+</head>
+
+<body onload="openContactsPage()">
+
+    <div class="mainPage">
+
+        <div w3-include-html="./assets/templates/desktop_template.html"></div>
+        <div w3-include-html="./assets/templates/mobile_template.html"></div>
+
+        <div class="contentMainPage" id="contentMainPageSite"></div>
+        <!--<div id="showContactMobile" class="showContactMobile"></div>-->
+
+        <div class="addContactOverlay" id="addContactOverlay"
+            onclick="closeOverlay('addContactOverlay', 'addContactContainer')">
+
+            <!-- Add Contact Container fly-in -->
+            <div id="addContactContainer" class="addContactContainer fly-in" onclick="event.stopPropagation()">
+
+                <div class="addContactHeadline">
+                    <img class="JoinLogoAddContact" src="./assets/img/joinLogo.svg">
+                    <h1 class="addContact" style="margin: 0">Add contact</h1>
+                    <p class="font-size-p-tag">Tasks are better with a team!</p>
+                    <div class="addContactTitleUnderline"></div>
+                </div>
+
+                <!-- Form to fill-->
+                <div class="addContactForm display-flex">
+
+                    <div class="addContactUserIconDiv">
+                        <img class="contactShortInfoIcon" src="./assets/img/unkownUser.svg">
+                    </div>
+
+                    <form id="contactForm" onsubmit="return addNewContact()">
+                        <div style="display: flex; flex-direction: column;">
+                            <div class="closeSignDiv">
+                                <a onclick="closeOverlay('addContactOverlay', 'addContactContainer')"
+                                    class="closeSign cursor"></a>
+                            </div>
+
+                            <div class="inputFieldsContact">
+                                <div class="inputContactInfoContainer" id="inputName">
+                                    <input type="text" placeholder="Name" class="inputContact" id="inputContactName"
+                                        required>
+                                    <img class="cursor" src="./assets/img/person.svg">
+                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactNameTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid name, must have at least 4 letters</a></div>
+                                </div>
+
+                                <div class="inputContactInfoContainer" id="inputEmail">
+                                    <input type="email" placeholder="Email" class="inputContact" id="inputContactEmail"
+                                        required>
+                                    <img class="cursor" src="./assets/img/mail.svg">
+                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactEmailTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid email adress</a></div>
+                                </div>
+
+                                <div class="inputContactInfoContainer" id="inputPhone">
+                                    <input type="text" placeholder="Phone" class="inputContact" id="inputContactPhone"
+                                        required>
+                                    <img class="cursor" src="./assets/img/phone.svg">
+                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactPhoneTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid phone number e.g. +491234567</a></div>
+                                </div>
+                            </div>
+
+                            <div class="actionButtonsAddContact">
+                                <a onclick="closeOverlay('addContactOverlay', 'addContactContainer')"
+                                    class="cancelBtn cursor"></a>
+                                <a onclick="validateAndSubmitForm()" class="createContactBtn cursor"></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- popUp, if contact created in desktop/mobile -->
+        <div id="overlay_popup_contact_created" class="overlay_popup_contact_created d-none fly-in">
+            <div id="popup" class="popup_contact_created">
+                <span>Contact succesfully created</span>
+            </div>
+        </div>
+
+
+        <div class="addContactOverlay" id="editContactOverlay">
+
+            <!-- Edit Contact Container fly-in -->
+            <div id="editContactContainer" class="addContactContainer fly-in">
+
+                <div class="addContactHeadline">
+                    <img class="JoinLogoAddContact" src="./assets/img/joinLogo.svg">
+                    <h1 style="margin: 24px 0 0 0;">Edit contact</h1>
+                    <div class="addContactTitleUnderline"></div>
+                </div>
+
+                <!-- Form to fill-->
+                <div class="addContactForm display-flex">
+                    <div class="addContactUserIconDiv">
+                        <div id="userIconEditContactPage"></div>
+                    </div>
+                    <form id="editContactForm" onsubmit="return editNewContact()" class="mobileViewEditContactForm">
+                        <div style="display: flex; flex-direction: column;">
+                            <div class="closeSignDiv">
+                                <a onclick="closeOverlay('editContactOverlay', 'editContactContainer')"
+                                    class="closeSign cursor"></a>
+                            </div>
+                            <div class="inputFieldsContact">
+                                <div class="inputContactInfoContainer" id="editInputName">
+                                    <input type="text" placeholder="Name" class="inputContact" id="editInputContactName"
+                                        required>
+                                    <img class="cursor" src="./assets/img/person.svg">
+                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactNameTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid name, must have at least 4 letters</a></div>
+                                </div>
+                                <div class="inputContactInfoContainer" id="editInputEmail">
+                                    <input type="email" placeholder="Email" class="inputContact"
+                                        id="editInputContactEmail" required>
+                                    <img class="cursor" src="./assets/img/mail.svg">
+                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactEmailTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid email adress</a></div>
+                                </div>
+                                <div class="inputContactInfoContainer" id="editInputPhone">
+                                    <input type="text" placeholder="Phone" class="inputContact"
+                                        id="editInputContactPhone" required>
+                                    <img class="cursor" src="./assets/img/phone.svg">
+                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactPhoneTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid phone number e.g. +491234567</a></div>
+                                </div>
+                            </div>
+                            <div class="actionButtonsAddContact">
+                                <a onclick="closeOverlay('editContactOverlay', 'editContactContainer')"
+                                    class="cancelBtn cursor"></a>
+                                <a id="validateAndSubmitEditForm" class="saveContactBtn cursor"></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+
+
+    </div>
+</body>
+
+<script>
+    includeHTML();
+</script>
+
+</html>

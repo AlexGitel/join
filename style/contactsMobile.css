@@ -1,0 +1,386 @@
+@media(max-width: 1400px) {
+    .contentMainPage {
+        padding-left: 0px;
+    }
+
+    .addContactContainer {
+        flex-direction: column;
+        position: absolute;
+        animation: flyInFromBottom 0.4s ease-out forwards;
+    }
+
+    .addContactHeadline {
+        width: 396px;
+        height: 352px;
+        border-radius: 30px 30px 0 0;
+        padding: 0 0 0 24px;
+    }
+
+
+    .addContact {
+        margin: 0;
+        font-size: 47px;
+    }
+
+    .font-size-p-tag {
+        font-size: 20px;
+    }
+
+    .addContactForm {
+        display: flex;
+        justify-content: center;
+        height: 408px;
+        width: 396px;
+        background-color: white;
+        border-radius: 0 0 30px 30px;
+    }
+
+    .addContactUserIconDiv {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #userIconEditContactPage,
+    .contactShortInfoIcon {
+        position: fixed;
+        top: 290px;
+        left: 0%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .closeSign {
+        position: absolute;
+        top: 24px;
+        margin: 0;
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(82deg) brightness(105%) contrast(105%);
+    }
+
+    .inputFieldsContact {
+        height: 153px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 92px;
+    }
+
+    .inputContactInfoContainer {
+        width: 364px;
+        height: 41px;
+    }
+
+    .cancelBtn {
+        display: none;
+    }
+
+    .actionButtonsAddContact {
+        justify-content: center;
+        padding-top: 32px !important;
+    }
+
+    #editContactForm {
+        background-color: white;
+    }
+
+    .JoinLogoAddContact {
+        display: none;
+    }
+
+    .mobileViewEditContactForm {
+        height: 98%;
+    }
+
+    .deleteButtonTxtMobile {
+        margin-left: 0 !important;
+    }
+
+    @keyframes flyInFromBottom {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    .fly-out {
+        animation: flyOutToBottom 0.4s ease-out forwards;
+    }
+
+    @keyframes flyOutToBottom {
+        from {
+            transform: translateY(0);
+        }
+
+        to {
+            transform: translateY(1000%);
+        }
+    }
+
+    .overlay_popup_contact_created {
+        animation: flyInFromBottom 0.4s ease-out forwards;
+    }
+
+    .fly-out-msgTxt {
+        animation: flyOutToBottom 0.4s ease-out forwards;
+        animation-delay: 2s;
+    }
+}
+
+
+@media(max-width: 1100px) {
+
+    .contacts-overlay-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        background: white;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .contacts-overlay-content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 80px;
+    }
+
+    #userIconEditContactPage {
+        top: 310px;
+    }
+
+    .logo-arrow-div {
+        display: flex;
+        width: 428px;
+        justify-content: space-between;
+        padding-top: 48px;
+    }
+
+    .contacts-logo {
+        width: 213px;
+        height: 104px;
+    }
+
+    .contactDetails {
+        margin-left: 16px;
+        gap: 21px;
+        height: 274px;
+    }
+
+    .contactShortInfo {
+        margin-top: 48px;
+        gap: 20px;
+        height: 80px;
+    }
+
+    .contactsUserIcon {
+        width: 80px;
+        height: 80px;
+        font-size: 27px;
+        font-weight: 400;
+    }
+
+    .name-size {
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .editButtonText,
+    .deleteButtonText {
+        display: none;
+    }
+
+    .contactNameAction {
+        justify-content: center;
+    }
+
+    .overlayMenuButton {
+        position: absolute;
+        border-radius: 50%;
+        width: 56px;
+        right: 16px;
+        bottom: 112px;
+        z-index: 3;
+    }
+
+    .headline-right {
+        display: none;
+    }
+
+    .addContactButtonContainer {
+        height: 0;
+    }
+
+    .contactList {
+        width: 100%;
+        max-width: 456px;
+        box-shadow: none;
+    }
+
+    .contactsPage {
+        max-width: 1100px;
+        width: 100%;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+
+    .contentMainPage {
+        padding-left: 0px !important;
+        background-color: white;
+        width: 100%;
+    }
+
+    .newContact {
+        display: none;
+    }
+
+    .contactsScrollList {
+        height: calc(100vh - 160px);
+        padding-top: 24px;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+    .addNewContactButton {
+        position: absolute;
+        border-radius: 50%;
+        width: 56px;
+        right: 16px;
+        background-color: #2a3647;
+        bottom: 112px;
+    }
+
+    .headline-right {
+        position: absolute;
+        display: block;
+        z-index: 7;
+        width: 100%;
+        height: calc(100vh - 160px);
+        /* background-color: #F6F7F8; */
+        background-color: #D1D1D1;
+        display: none;
+    }
+
+    .better-with-a-team {
+        display: none;
+    }
+
+    .better-with-a-team-mobile {
+        margin: 48px 0 0 16px;
+        display: block;
+        width: 215px;
+        height: 106px;
+    }
+
+    .contactDetails {
+        margin: 0 16px 0 16px;
+    }
+
+    .showMobileContactHeadlineContainer {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 16px;
+    }
+
+    .showContactInfoCloseBtn {
+        cursor: pointer;
+        display: block;
+    }
+
+    .contactListEntryClicked {
+        background-color: white;
+        color: black;
+        pointer-events: all;
+    }
+
+    .mobileActionBtn {
+        display: block;
+        position: absolute;
+        cursor: pointer;
+        bottom: 24px;
+        right: 16px;
+    }
+}
+
+
+@media(max-width: 420px) {
+    .addContactContainer {
+        width: auto;
+    }
+
+
+    .contactsPage {
+        max-width: 450px;
+    }
+
+    .addContact {
+        font-size: 40px;
+    }
+
+    .closeSign {
+        right: 24px;
+    }
+
+    .addContactHeadline {
+        padding: 0 0 0 12px;
+    }
+
+    .addContactHeadline,
+    .addContactForm {
+        width: 100%;
+        padding: 0 10px 0 10px;
+    }
+
+    .addContactHeadline {
+        height: 280px;
+    }
+
+    .addContactForm {
+        height: 350px;
+    }
+
+    .contactShortInfoIcon {
+        top: 235px;
+        height: 100px;
+    }
+
+    .inputContactInfoContainer {
+        width: 290px;
+    }
+
+    .inputFieldsContact {
+        margin-top: 72px;
+    }
+
+    .actionButtonsAddContact {
+        width: auto;
+    }
+
+    #userIconEditContactPage {
+        top: 240px !important;
+    }
+
+    .inputContact {
+        width: 240px;
+    }
+
+    .name-size {
+        font-size: 28px;
+    }
+
+    .better-with-a-team-mobile {
+        width: 200px;
+        height: 100px;
+    }
+}

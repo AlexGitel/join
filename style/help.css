@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+    /*overflow-x: hidden;
+    overflow-y: auto; */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+::-webkit-scrollbar {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    display: none;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1110px;
+    width: 100%;
+    padding: 110px 10px 24px 96px;
+
+}
+
+
+.help_arrow_div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1014px;
+    width: 100%;
+    padding-bottom: 32px;
+}
+
+
+h1 {
+    font-weight: 700;
+    font-size: 61px;
+}
+
+
+.step_back_arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+}
+
+
+.step_back_arrow:hover {
+    background-color: #ebebeb;
+    border-radius: 50%;
+    width: 37px;
+    height: 37px;
+}
+
+
+.cursor {
+    cursor: pointer;
+}
+
+
+.text {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2A3647;
+    padding-bottom: 24px;
+}
+
+
+p {
+    margin: 0;
+}
+
+
+.h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 27px;
+    padding-bottom: 24px;
+}
+
+
+.row_div {
+    display: flex;
+}
+
+
+.consecutive_number {
+    width: 21px;
+    height: 61px;
+    padding-right: 56px;
+}
+
+
+.comment_div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.h4 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+
+@media(max-width: 1400px) {
+    .content {
+        padding: 110px 16px 96px 16px;
+    }
+}
+
+
+@media(max-width: 600px) {
+    .content {
+        padding: 48px 16px 96px 16px;
+    }
+
+
+    h1 {
+        font-size: 47px;
+        padding-bottom: 0 !important;
+    }
+}

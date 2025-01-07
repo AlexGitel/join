@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="./js/board.js"></script>
+        <script src="./js/database.js"></script>
+        <script src="./assets/templates/board_templates.js"></script>
+        <script src="./assets/templates/add_task_template.js"></script>
+        <script src="./assets/templates/help_template.js"></script>
+        <script src="./assets/templates/drop_down_box_template.js"></script>
+        <script src="./js/addtask.js"></script>
+        <script src="./js/join.js"></script>
+        <script src="./js/logout.js"></script>
+
+        <link rel="icon" type="image/png" href="./assets/img/favicon.svg">
+        <link rel="stylesheet" href="./assets/fonts/fonts.css">
+        <link rel="stylesheet" href="./style/task.css">
+        <link rel="stylesheet" href="./style/taskMobile.css">
+        <link rel="stylesheet" href="./style/taskInputs.css">
+        <link rel="stylesheet" href="./style/sideBar_header.css">
+        <link rel="stylesheet" href="./style/drop_down_box.css">
+        <link rel="stylesheet" href="./style/help.css">
+        <link rel="stylesheet" href="./style/navBarMobile.css">
+        <script src="./js/navigation.js"></script>
+
+        <title>Join</title>
+    </head>
+
+    <body onload="openAddTaskPage()">
+
+        <div w3-include-html="./assets/templates/desktop_template.html"></div>
+        <div w3-include-html="./assets/templates/mobile_template.html"></div>
+
+        <div class="addTaskContent" id="contentMainPageSite"></div>
+
+    </body>
+
+    <script>
+        includeHTML();
+    </script>
+
+</html>

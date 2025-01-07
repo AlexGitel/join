@@ -1,0 +1,261 @@
+.animation {
+    position: absolute;
+    animation: signMove 1s forwards;
+}
+
+
+@keyframes signMove {
+    0% {
+        bottom: -30vh;
+        left: 50%;
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+
+    80% {
+        bottom: 50%;
+    }
+
+    100% {
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
+
+
+.invalidLoginTxt {
+    color: rgba(255, 129, 144, 1);
+    font-size: 12px;
+    cursor: default;
+    position: absolute;
+}
+
+
+.display {
+    display: block;
+}
+
+
+.valueNotValid {
+    border: 1px solid rgba(255, 129, 144, 1) !important;
+}
+
+
+.inputInvalidText {
+    font-size: 12px;
+    color: rgba(255, 129, 144, 1);
+    position: absolute;
+    top: 50px;
+}
+
+
+.display-flex {
+    display: flex;
+}
+
+
+.policyCheckBox {
+    font-size: 12px;
+    color: rgba(255, 129, 144, 1);
+    top: 50px;
+}
+
+
+.flex-column {
+    flex-direction: column;
+}
+
+
+@media (max-width: 1550px) {
+    .not_a_user {
+        padding: 67px 80px 0 0;
+        gap: 0px;
+    }
+
+    .join-logo {
+        width: 64px;
+        height: 78px;
+        margin: 20px 0 0 25px;
+    }
+}
+
+
+@media(max-width: 1400px) {
+    .join-logo {
+        width: 64px;
+        height: 78px;
+        margin: 20px 0 0 25px;
+    }
+
+
+    .not_a_user {
+        padding: 30px 50px 0 0;
+        gap: 15px;
+    }
+
+
+    .animated-logo_mobile {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: logoMove 0.9s forwards, imageChange 0.9s forwards;
+        z-index: 11;
+        background-size: cover;
+    }
+
+    @keyframes imageChange {
+        0% {
+            background-image: url('/assets/img/joinLogo.svg');
+            z-index: 11;
+        }
+
+        30% {
+            background-image: url('/assets/img/joinLogo.svg');
+            z-index: 10;
+        }
+
+        100% {
+            background-image: url('/assets/img/join.svg');
+            z-index: 9;
+        }
+    }
+
+    body {
+        animation: changeBgColor 0.9s forwards;
+    }
+
+    @keyframes changeBgColor {
+        0% {
+            background-color: #2A3647;
+        }
+
+        30% {
+            background-color: #2A3647;
+        }
+
+        100% {
+            background-color: #f5f5f5;
+        }
+    }
+}
+
+
+@media(max-width: 1024px) {
+
+    .not_a_user {
+        display: none;
+    }
+
+
+    .for_mobile {
+        display: flex;
+        padding-bottom: 0;
+    }
+
+
+    .sign-up-container {
+        width: 396px;
+        height: 595px;
+    }
+
+
+    .login-box {
+        width: 396px;
+        height: 410px;
+    }
+
+
+    h1 {
+        font-size: 47px;
+    }
+
+
+    .underline_blue {
+        width: 88px;
+    }
+
+
+    .input-group {
+        max-width: 364px;
+    }
+
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .login-btn,
+    .guest-login-btn {
+        font-size: 16px;
+        width: 180px;
+        height: 50px;
+    }
+
+
+    .buttons {
+        gap: 21px;
+        margin: 15px 0 0 0;
+    }
+
+
+    .invalidLoginTxt {
+        padding-top: 12px;
+    }
+}
+
+
+@media(max-width: 430px) and (orientation: portrait) {
+    .join-logo {
+        width: 50px;
+        height: 61px;
+        margin: 15px 0 0 15px;
+    }
+
+
+    .login-box {
+        width: 300px;
+        height: 396px;
+    }
+
+
+    .sign-up-container {
+        width: 300px;
+        height: 455px;
+    }
+
+
+    h1 {
+        font-size: 35px;
+        padding-bottom: 8px;
+    }
+
+
+    .input-group {
+        max-width: 280px;
+    }
+
+
+    .input-group input {
+        padding: 8px 40px 8px 8px;
+        font-size: 16px;
+    }
+
+
+    .signup-btn {
+        padding: 12px 20px;
+    }
+
+
+    footer {
+        bottom: 25px;
+        gap: 20px;
+    }
+
+
+    .for_mobile {
+        padding-bottom: 10px;
+    }
+}

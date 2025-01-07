@@ -1,0 +1,79 @@
+{
+  "ad81912wdd": {
+    "color": "#FF7A00",
+    "email": "jonas.mueller@pseudo.com",
+    "id": 0,
+    "name": "Jonas Müller",
+    "phone": "+184654846816"
+  },
+  "ad8191e212": {
+    "color": "#9327FF",
+    "email": "antom@gmail.com",
+    "id": 1,
+    "name": "Anton Mayer",
+    "phone": "+42846844138"
+  },
+  "ad8191ae": {
+    "color": "#6E52FF",
+    "email": "schulz@hotmail.com",
+    "id": 2,
+    "name": "Anja Schulz",
+    "phone": "+498513546816"
+  },
+  "ad819123": {
+    "color": "#FC71FF",
+    "email": "benedikt@gmail.com",
+    "id": 3,
+    "name": "Benedikt Ziegler",
+    "phone": "+498545846816"
+  },
+  "ad819123": {
+    "color": "#FFBB2B",
+    "email": "eva@gmail.com",
+    "id": 4,
+    "name": "Eva Fischer",
+    "phone": "+45535843816"
+  },
+  "ad819132": {
+    "color": "#1FD7C1",
+    "email": "emmanuelma@gmail.com",
+    "id": 5,
+    "name": "Emmanuel Mauer",
+    "phone": "+49845485816"
+  },
+  "ad819d21": {
+    "color": "#1FD7C1",
+    "email": "fwalter@gmail.com",
+    "id": 6,
+    "name": "Frank Walter",
+    "phone": "+49845485816"
+  },
+  "ad819adf1": {
+    "color": "#1FD7C1",
+    "email": "hermann@gmx.com",
+    "id": 6,
+    "name": "Konrad Hermann",
+    "phone": "+49845485816"
+  },
+  "ad819asd21": {
+    "color": "#1FD7C1",
+    "email": "TEST@gmail.com",
+    "id": 6,
+    "name": "Emmanuel Mauer",
+    "phone": "+49845485816"
+  },
+  "ad8191f22": {
+    "color": "#1FD7C1",
+    "email": "TEST@gmail.com",
+    "id": 6,
+    "name": "Emmanuel Mauer",
+    "phone": "+49845485816"
+  },
+  "ad819asdf21": {
+    "color": "#1FD7C1",
+    "email": "TEST@gmail.com",
+    "id": 6,
+    "name": "Emmanuel Mauer",
+    "phone": "+49845485816"
+  }
+}

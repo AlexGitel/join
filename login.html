@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="icon" type="image/png" href="assets/img/favicon.svg">
+        <link rel="stylesheet" href="./style/login.css">
+        <link rel="stylesheet" href="./style/loginMobile.css">
+        <link rel="stylesheet" href="./assets/fonts/fonts.css">
+
+        <script src="./js/join.js"></script>
+        <script src="./js/login.js"></script>
+        <script src="./js/database.js"></script>
+        <script src="./js/logout.js"></script>
+        <script src="./js/board.js"></script>
+        <script src="./js/contacts.js"></script>
+
+        <title>Login</title>
+    </head>
+
+    <body>
+        <img class="join-logo animated-logo" src="./assets/img/join.svg" alt="Join Logo">
+        <img class="join-logo animated-logo_mobile" src="./assets/img/joinLogo.svg" alt="Join Logo">
+
+        <div class="main-content" id="main-content">
+
+            <div id="login-overlay" class="login-overlay">
+                <div class="not_a_user" id="not_a_user">
+                    <span class="not_join_user">Not a Join user?</span>
+                    <span class="signup-btn" onclick="showSignupForm()">Sign up</span>              
+                </div> 
+            
+                <div class="login-container" id="login-form">
+                    <form onsubmit="startLogin(event)">
+                        <div class="login-box">
+                            <h1>Log in</h1>
+                        <div class="underline_blue"></div>
+
+                            <div class="input-group">
+                                <input type="text" id="login-email" name="email" placeholder="Email" autocomplete="username">
+                                <span class="icon"><img src="assets/img/mail.svg" alt=""></span>    
+                            </div>
+
+                                <!-- password section Login page -->
+                                <section class="input-group">
+                                    <input onkeydown="hideLockIcon()" type="password" id="myPassword" value="" name="password" placeholder="Password" autocomplete="current-password">
+
+                                    <span id="lock-icon" class="icon"><img src="assets/img/lock.svg" alt="lock-icon"></span>
+
+                                    <span id="visibility-off-icon" onclick="showHideLogInPassword()" class="visibility-icon d-none">
+                                        <img src="assets/img/visibility_off.svg" alt="visibility-off-icon"></span>
+
+                                    <span id="visibility-icon" onclick="showHideLogInPassword(), changeIcons()" class="visibility-icon d-none">
+                                        <img src="assets/img/visibility.svg" alt="visibility-icon"></span>   
+                                        <div class="invalidLoginTxt d-none" id="invalidLoginTxt"><a style="text-decoration: none;cursor:default;">Check your email and password. Please try again.</a></div>
+                                </section>
+
+                            <div class="buttons">
+                                <form>
+                                    <button type="submit" class="login-btn">Log in</button>
+                                </form>
+                                    <button onclick="guestLogin()" class="guest-login-btn">Guest Log in</button>
+                            </div>  
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <footer>
+                <div class="for_mobile d-none">
+                    <div id="for_mobile">
+                        <span class="not_join_user">Not a Join user?</span>
+                        <span class="signup-btn" onclick="showSignupForm()">Sign up</span>
+                    </div>              
+                </div>
+
+                <div class="footer-gap">
+                    <a href="./policyExternalPage.html" target="_blank">Privacy Policy</a>
+                    <a href="./legalNoticeExternal.html" target="_blank">Legal notice</a>
+                </div>
+            </footer>
+
+                    <!-- Sign Up form (Initially hidden) -->
+            <div class="login-container d-none" id="signup-form">
+                <form onsubmit="startRegistration(event)">
+                    <div class="sign-up-container">
+
+                        <div class="signup-btn-arrow">
+                            <div class="arrow-blue">
+                                <img class="step_back_arrow" onclick="hideSignupForm()" src="assets/img/arrow-left-line.svg" alt="">
+                            </div>
+                            <span><h1>Sign up</h1></span>    
+                        </div>
+
+                        <div class="underline_blue"></div>
+
+                        <div class="input-group display-flex ">
+                            <input type="text" id="name" name="name" placeholder="Name" autocomplete="username">
+                            <span class="icon"><img src="assets/img/person.svg" alt=""></span>
+                            <span class="inputInvalidText d-none" id="nameToShort">Name to short, needs at least 4 characters</span>
+                        </div>
+
+                        <div class="input-group display-flex">
+                            <input type="text" id="email" name="email" placeholder="Email" autocomplete="email">
+                            <span class="icon"><img src="assets/img/mail.svg" alt=""></span>
+                            <span class="inputInvalidText d-none" id="emailInvalid">Please enter a valid email</span>
+                            <span class="inputInvalidText d-none" id="emailExsists">Email already exists</span>
+                        </div>
+
+                            <!-- password section -->
+                        <section class="input-group">
+                            <div>
+                                <input onkeydown="hideLockIconSignUpForm()" type="password" id="mypassword" value="" name="password" placeholder="Password" minlength="4" autocomplete="new-password">
+
+                            <span id="next-lock-icon" class="icon"><img src="assets/img/lock.svg" alt="lock-icon"></span>
+
+                            <span id="next-visibility-off-icon" onclick="showHideSignUpPassword()" class="visibility-icon d-none">
+                                <img src="assets/img/visibility_off.svg" alt="visibility-off-icon"></span>
+
+                            <span id="next-visibility-icon" onclick="showHideSignUpPassword(), changeIconsSignUpForm()" class="visibility-icon d-none">
+                                <img src="assets/img/visibility.svg" alt="visibility-icon"></span>
+                            </div>
+                        </section>
+
+                            <!-- confirm password section -->
+                        <section class="input-group">
+                            
+                            <div>
+                                <input onkeydown="hideLockIconConfirm()" type="password" id="confirmPassword"  placeholder="Confirm Password" minlength="4" autocomplete="new-password">
+
+                                <span id="thirth-lock-icon" class="icon"><img src="assets/img/lock.svg" alt=""></span>
+
+                                <span id="thirth-visibility-off-icon" onclick="showHideConfirmPassword()" class="visibility-icon d-none">
+                                    <img src="assets/img/visibility_off.svg" alt="visibility-off-icon"></span>
+        
+                                <span id="thirth-visibility-icon" onclick="showHideConfirmPassword(), changeIconsConfirm()" class="visibility-icon d-none">
+                                    <img src="assets/img/visibility.svg" alt="visibility-icon"></span>   
+                            </div>
+
+                            <span class="inputInvalidText d-none" id="passwordsDontMatch">Your passwords don't match. Please try again.</span>
+                            <span class="inputInvalidText d-none" id="passwortToShort">Your password is to short, use at least 4 characters.</span>
+
+                        </section>
+
+                            <!--- checkbox container --->
+                        <div class="checkbox-container">
+                            <div class="checkbox-group display-flex flex-column">
+                                <div>
+                                <input type="checkbox" id="accept-checkbox" name="checkbox">
+                                <span for="privacy-policy" style="color: #A8A8A8; padding-left: 5px;">I accept the 
+                                    <a style="color: #29ABE2;" target="_blank" href="./policyExternalPage.html">Privacy policy</a>
+                                </span>
+                                </div>
+                                <span class="policyCheckBox d-none" id="policyCheckBox">Please accept the privacy-policy</span>
+                            </div>
+
+                            <div class="buttons">
+                                <button class="login-btn" type="submit" id="signup-button">Sign up</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+                    <!-- Pop Up "Signed Up" (Initially hidden) -->
+            <div class="pop-up-bg d-none" id="pop-up-bg">
+                <div class="moving-sign animation">
+                    <span>You Signed Up successfully</span>
+                </div> 
+            </div> 
+        </div>
+    </body>
+</html>

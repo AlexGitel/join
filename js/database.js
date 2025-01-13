@@ -1,15 +1,16 @@
 let jsonTaskTemplate = {
-        "date": "",
-        "description": "",
-        "name": "",
-        "prio": "",
-        "status": "",
-        "subtasks": "",
-        "type": "",
-        "users": ""}
+    "date": "",
+    "description": "",
+    "name": "",
+    "prio": "",
+    "status": "",
+    "subtasks": "",
+    "type": "",
+    "users": ""
+}
 
 
-const baseUrl = 'https://join-c4326-default-rtdb.europe-west1.firebasedatabase.app/'
+const baseUrl = 'https://realtime-database-d6d9e-default-rtdb.europe-west1.firebasedatabase.app/'
 
 
 /**
@@ -17,9 +18,9 @@ const baseUrl = 'https://join-c4326-default-rtdb.europe-west1.firebasedatabase.a
  * 
  * @returns - a json of all tasks returned by the database
  */
-async function fetchAllTasks(){
+async function fetchAllTasks() {
     let tasks = await (await fetch(baseUrl + "tasks.json")).json();
-    return(tasks);
+    return (tasks);
 }
 
 
@@ -29,9 +30,9 @@ async function fetchAllTasks(){
  * @param {string} taskId - id of the specific task 
  * @returns 
  */
-async function getTask(taskId){
+async function getTask(taskId) {
     let task = await (await fetch(baseUrl + "tasks/" + taskId + ".json")).json();
-    return(task);
+    return (task);
 }
 
 
@@ -41,9 +42,9 @@ async function getTask(taskId){
  * @param {string} taskId - id of the specific task 
  * @returns 
  */
-async function getsubtasks(taskId){
+async function getsubtasks(taskId) {
     let task = await (await fetch(baseUrl + "tasks/" + taskId + "/subtasks.json")).json();
-    return(task);
+    return (task);
 }
 
 
@@ -53,9 +54,9 @@ async function getsubtasks(taskId){
  * 
  * @returns - a json of all users returned by the database
  */
-async function getAllUsers(){
+async function getAllUsers() {
     let users = await (await fetch(baseUrl + "users.json")).json();
-    return(users)
+    return (users)
 }
 
 
@@ -65,9 +66,9 @@ async function getAllUsers(){
  * @param {string} userId - id of a user
  * @returns - a json of all informations about a user returned by the database
  */
-async function  loadUserFromDb(userId) {
+async function loadUserFromDb(userId) {
     let user = await (await fetch(baseUrl + "users/" + userId + ".json")).json();
-    return(user);
+    return (user);
 }
 
 
@@ -93,7 +94,7 @@ async function addTaskToDb(data) {
         header: {
             "Content-Type": "application/json"
         },
-        
+
         body: JSON.stringify(data)
     })
 }
@@ -107,7 +108,7 @@ async function addTaskToDb(data) {
  *
  */
 async function updateTaskToDb(taskId, taskJson) {
-    
+
     await fetch(baseUrl + "tasks/" + taskId + ".json", {
         method: "PATCH",
         headers: {
@@ -132,7 +133,7 @@ async function addUserToDb(data) {
     });
     let responseData = await response.json();
     let responseId = responseData.name;
-    return(responseId);
+    return (responseId);
 }
 
 
@@ -198,8 +199,8 @@ async function deleteTaskInDb(taskId) {
  * @returns 
  */
 function dbTaskJsonTemplate(date, description, name, prio, status, subtasks, type, users) {
-    
-    let json = jsonTaskTemplate;     
+
+    let json = jsonTaskTemplate;
     json.date = date;
     json.description = description;
     json.name = name;
@@ -208,7 +209,7 @@ function dbTaskJsonTemplate(date, description, name, prio, status, subtasks, typ
     json.subtasks = subtasks;
     json.type = type;
     json.users = users;
-    return(json)
+    return (json)
 }
 
 
@@ -217,33 +218,33 @@ function dbTaskJsonTemplate(date, description, name, prio, status, subtasks, typ
  * 
  * @param {string} userId - Id of the deleted user
  */
-async function removeDelUserFromTask (userId) {
+async function removeDelUserFromTask(userId) {
 
     let tasks = await fetchAllTasks();
     let tasksIdArray = Object.keys(tasks);
-    
+
     for (let i = 0; i < tasksIdArray.length; i++) {
-        
+
         tasks = await fetchAllTasks();
         let tasksUserArray
         let userInTask = false
-        if (tasks[tasksIdArray[i]]['users'] !== undefined) {tasksUserArray = Object.keys(tasks[tasksIdArray[i]]['users'])} else {continue};
-        
+        if (tasks[tasksIdArray[i]]['users'] !== undefined) { tasksUserArray = Object.keys(tasks[tasksIdArray[i]]['users']) } else { continue };
+
         for (let x = 0; x < tasksUserArray.length; x++) {
             if ((tasks[tasksIdArray[i]]['users'][tasksUserArray[x]]) == userId) {
                 userInTask = true
             }
-            }
+        }
         if (userInTask === true) {
             newUserList = (tasks[tasksIdArray[i]]['users']);
-            
+
             let indexVal = newUserList.indexOf(userId);
-            if (indexVal !== -1) {newUserList.splice(indexVal, 1);}
-            
-            let json = ('{"users":' + JSON.stringify(newUserList)+ '}');
+            if (indexVal !== -1) { newUserList.splice(indexVal, 1); }
+
+            let json = ('{"users":' + JSON.stringify(newUserList) + '}');
             updateTaskToDb(tasksIdArray[i], json)
         }
-    
+
         userInTask = false;
-}
+    }
 }

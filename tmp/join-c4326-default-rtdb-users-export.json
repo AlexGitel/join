@@ -21,13 +21,6 @@
     "phone": "+498513546816"
   },
   "ad819123": {
-    "color": "#FC71FF",
-    "email": "benedikt@gmail.com",
-    "id": 3,
-    "name": "Benedikt Ziegler",
-    "phone": "+498545846816"
-  },
-  "ad819123": {
     "color": "#FFBB2B",
     "email": "eva@gmail.com",
     "id": 4,
@@ -35,7 +28,7 @@
     "phone": "+45535843816"
   },
   "ad819132": {
-    "color": "#1FD7C1",
+    "color": "#97e7c1",
     "email": "emmanuelma@gmail.com",
     "id": 5,
     "name": "Emmanuel Mauer",
@@ -49,31 +42,31 @@
     "phone": "+49845485816"
   },
   "ad819adf1": {
-    "color": "#1FD7C1",
+    "color": "#eFBc9B",
     "email": "hermann@gmx.com",
-    "id": 6,
+    "id": 7,
     "name": "Konrad Hermann",
     "phone": "+49845485816"
   },
   "ad819asd21": {
-    "color": "#1FD7C1",
-    "email": "TEST@gmail.com",
-    "id": 6,
-    "name": "Emmanuel Mauer",
+    "color": "#9E52aF",
+    "email": "mmauer@gmail.com",
+    "id": 8,
+    "name": "Manuel Mauer",
     "phone": "+49845485816"
   },
   "ad8191f22": {
-    "color": "#1FD7C1",
-    "email": "TEST@gmail.com",
-    "id": 6,
-    "name": "Emmanuel Mauer",
+    "color": "#fF5A90",
+    "email": "bauerw@gmail.com",
+    "id": 9,
+    "name": "Wolfgang Bauer",
     "phone": "+49845485816"
   },
   "ad819asdf21": {
     "color": "#1FD7C1",
-    "email": "TEST@gmail.com",
-    "id": 6,
-    "name": "Emmanuel Mauer",
+    "email": "vstrupf@gmail.com",
+    "id": 10,
+    "name": "Vivien Strupf",
     "phone": "+49845485816"
   }
 }

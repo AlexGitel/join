@@ -1,4 +1,4 @@
-function buildAddTaskDiv(users, environment) {
+function buildAddTaskDiv(users) {
     return /*html*/ `
 
         <form id="taskForm" class="task-form"onkeydown="preventEnterSubmit(event)"  onsubmit="event.preventDefault();submitForm()">

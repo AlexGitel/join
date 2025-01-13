@@ -40,14 +40,12 @@ function finalContactPage(contactList) {
             <div class="contactsScrollList"> ${contactList}</div>
         </div>
 
-
         <div id="contactInfoMobile" class="headline-right contactInfoMobile">
                 <img class="better-with-a-team" src="./assets/img/Frame50.svg" alt="">
             <div class="showMobileContactHeadlineContainer">
                 <img class="better-with-a-team-mobile" src="./assets/img/showContactMobileHeadline.svg" alt="">
                 <img class="showContactInfoCloseBtn" src="./assets/img/arrow.svg" onclick="closeContactInfoMobile()">
             </div>
-            
             
             <div id="contactDetails" class="contactDetails fly-in"></div>
             
@@ -108,4 +106,3 @@ function dropDownContactMobile(userId) {
     </div>
     `;
 }
-

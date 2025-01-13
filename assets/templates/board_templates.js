@@ -40,7 +40,6 @@ function boardTaskTemplate(name, shortDescription, categoryColor, category, subT
     `
 }
 
-
 /**
  * builds the columns on the task dashboard
  * 
@@ -71,7 +70,6 @@ function buildBoardContent(toDoList, inProgressList, inAwaitList, inDoneList) {
     `;
 }
 
-
 /**
  * creates a empty box if a task list is empty
  * 
@@ -85,7 +83,6 @@ function emptyBox(column) {
         </div>
     `;
 }
-
 
 /**
  * Builds the head task dashboard with the searchbar, add task button and column titles
@@ -113,7 +110,6 @@ function buildTaskBoardHead() {
     `;
 }
 
-
 /**
  * Builds the user icon 
  * 
@@ -137,8 +133,6 @@ function showTaskOverlayTemplate(typeName, tasktype, title, description, date, p
                         <a onclick="closeOpenTaskOverlay('boardEditTaskOverlay', 'boardEditTaskContainer')" class="editCloseSign cursor"></a>
                     </div>
                 </div>
-
-
 
                 <h1 class="padTop25 openTaskHeadline">${title}</h1>
                 <a class="font-size20">${description}</a>
@@ -306,8 +300,7 @@ function buildEditTaskContent(users, taskData, taskId) {
                         </div>
                     </div>
 
-
-                
+                    
                     <div class="task-input margin">
                         <label for="subtasks">Subtasks</label>
                 

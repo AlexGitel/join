@@ -1,5 +1,4 @@
 let showPass = false;
-//let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 let userDataValid = true;
 
 
@@ -152,9 +151,8 @@ async function startLogin(event) {
     event.preventDefault();
     loginEmail = document.getElementById('login-email').value;
     loginPassword = document.getElementById('myPassword').value;
-    await checkUserCredentials(loginEmail, loginPassword); 
+    await checkUserCredentials(loginEmail, loginPassword);
 }
-
 
 /**
  * cecks the credentials from the login form if they are valid
@@ -162,7 +160,7 @@ async function startLogin(event) {
  * @param {*} loginPassword - password of the login form
  */
 async function checkUserCredentials(loginEmail, loginPassword) {
-    
+
     users = await getAllUsers();
     userArray = Object.keys(users);
     let loginValid = false;
@@ -172,10 +170,10 @@ async function checkUserCredentials(loginEmail, loginPassword) {
             window.location.href = 'summary.html';
             loginValid = true;
             loginUserProcess(userArray, index, userInformations['name']);
-    }
-    if (loginValid === false) {
-        setInvalidLoginSettings();
-    }
+        }
+        if (loginValid === false) {
+            setInvalidLoginSettings();
+        }
     }
 }
 
@@ -196,9 +194,9 @@ function setInvalidLoginSettings() {
  * @param {*} index - index of for loop form checkUserCredentials() function
  * @param {*} name - username of logged in user
  */
-function loginUserProcess(userArray, index, name){
+function loginUserProcess(userArray, index, name) {
     localStorage.setItem('activeUserStatus', 'true');
-    localStorage.setItem('userId', userArray[index]); 
+    localStorage.setItem('userId', userArray[index]);
     localStorage.setItem('name', name);
     let initals = getUserInitials(localStorage.getItem('name'))
     //document.getElementById('userIconValueHead').innerHTML = initals;
@@ -218,7 +216,7 @@ async function startRegistration(event) {
     username = document.getElementById('name').value;
     policyCheckBox = document.getElementById('accept-checkbox');
     await checkIfDataValid(email, password, confirmPassword, username, policyCheckBox);
-    if (userDataValid) {addUser(email, password, username)};
+    if (userDataValid) { addUser(email, password, username) };
 }
 
 
@@ -232,13 +230,14 @@ async function checkNewUserExists(email) {
     users = await getAllUsers();
     userArray = Object.keys(users);
     let userExists = false;
-    
+
     for (let index = 0; index < userArray.length; index++) {
-        
+
         let userInformations = (users[userArray[index]]);
 
         if (userInformations['email'].toLowerCase() === email.toLowerCase()) {
-            userExists = true;}
+            userExists = true;
+        }
     }
     return userExists;
 }
@@ -253,8 +252,8 @@ async function checkNewUserExists(email) {
  * @param {string} username 
  * @param {true/false} policyCheckBox 
  */
-async function checkIfDataValid(email, password, confirmPassword, username, policyCheckBox){
-    
+async function checkIfDataValid(email, password, confirmPassword, username, policyCheckBox) {
+
     resetRegistrationErrors();
     checkEmailIsValid(email);
     await checkEmailIfExists(email);
@@ -290,7 +289,7 @@ async function checkEmailIfExists(email) {
         document.getElementById('email').classList.add('valueNotValid');
         document.getElementById('emailExsists').classList.remove('d-none');
         userDataValid = false;
-    } 
+    }
 }
 
 
@@ -316,7 +315,7 @@ function checkPasswordConfirm(password, confirmPassword) {
  * @param {string} password 
  */
 function checkPasswordLenght(password) {
-    if (password.length <=3) {
+    if (password.length <= 3) {
         document.getElementById('mypassword').classList.add('valueNotValid');
         document.getElementById('confirmPassword').classList.add('valueNotValid');
         document.getElementById('passwortToShort').classList.remove('d-none');
@@ -391,11 +390,11 @@ async function addUser(email, password, username) {
 /**
  * allows a Guest user to login and sets the guest state to the browser storage
  */
-async function guestLogin(){
+async function guestLogin() {
     localStorage.setItem('activeUserStatus', 'true');
-    localStorage.setItem('userId', 'guest'); 
+    localStorage.setItem('userId', 'guest');
     localStorage.setItem('name', 'Guest');
     let initals = getUserInitials('Guest')
-    window.location.href='summary.html'
+    window.location.href = 'summary.html'
     //document.getElementById('userIconValueHead').innerHTML = initals;
 }

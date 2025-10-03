@@ -1,2 +1,1 @@
-Group work while learning programming at the Developer Academy Munich. 
-Creating a drag-and-drop task management system, with login and Firebase as the backend.
+Worked in a team to design and implement a drag-and-drop task management system with login features, using Firebase as the backend, at Developer Academy Munich.

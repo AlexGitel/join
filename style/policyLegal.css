@@ -3,17 +3,14 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: Inter, sans-serif;
     overflow-x: hidden;
 }
 
-
 .d-none {
     display: none;
 }
-
 
 .step_back_arrow {
     display: flex;
@@ -23,7 +20,6 @@ body {
     height: 34px;
 }
 
-
 .step_back_arrow:hover {
     background-color: #ebebeb;
     border-radius: 50%;
@@ -31,12 +27,10 @@ body {
     height: 37px;
 }
 
-
 .infoPageContent {
     margin: 110px 10px 0 96px;
     max-width: 1112px;
 }
-
 
 .infoPageHeadlineContainer {
     display: flex;
@@ -46,19 +40,22 @@ body {
     padding-bottom: 30px;
 }
 
-
 h1 {
     font-size: 61px;
     font-weight: 700;
+    color: #2A3647;
 }
-
 
 h3 {
     padding-bottom: 10px;
     font-size: 27px;
     font-weight: 700;
+    color: #2A3647;
 }
 
+h4 {
+    color: #2A3647;
+}
 
 .textBlock {
     margin-top: 10px;
@@ -66,30 +63,30 @@ h3 {
     flex-direction: column;
 }
 
-
 .noticeText {
     display: flex;
     flex-direction: column;
 }
 
-
 .pointerOff {
     pointer-events: none;
 }
 
-
-.text {
+.text,
+p {
     font-size: 16px;
-    font-weight: 400;
     color: #2A3647;
     padding: 0 8px 28px 0;
 }
 
+ul {
+    font-size: 16px;
+    color: #2A3647;
+}
 
 a {
     color: #29ABE2;
 }
-
 
 @media (max-width: 1400px) {
     .infoPageContent {
@@ -97,7 +94,6 @@ a {
         margin: 110px 16px 96px 16px;
     }
 }
-
 
 @media(max-width: 600px) {
     .infoPageContent {
@@ -110,12 +106,10 @@ a {
     }
 }
 
-
 @media(max-width: 415px) {
     h1 {
         font-size: 38px;
     }
-
 
     .infoPageContent {
         margin: 48px 8px 96px 8px;

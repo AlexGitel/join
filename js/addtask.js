@@ -179,14 +179,15 @@ function trackSelectedContacts() {
 
     document.getElementById('assigned-to-count').textContent = `${selectedCount} contact${selectedCount !== 1 ? 's' : ''} assigned`;
     document.getElementById('selected-contacts').innerHTML = selectedHtml;
-    //updateSelectedContactsInForm();
 
     // Add or remove the class based on selection count
     const taskRightColumn = document.querySelector('.task-right-column');
-    if (selectedCount > 0) {
-        taskRightColumn.classList.add('selected-user');
-    } else {
-        taskRightColumn.classList.remove('selected-user');
+    if (taskRightColumn) {
+        if (selectedCount > 0) {
+            taskRightColumn.classList.add('selected-user');
+        } else {
+            taskRightColumn.classList.remove('selected-user');
+        }
     }
 }
 
@@ -380,7 +381,7 @@ function validateForm() {
     const subtasksExist = document.getElementById('subtask-list').children.length > 0;
     const createTaskButton = document.getElementById('createTaskButton');
 
-    const isValid = title && dueDate && categorySelected  && subtasksExist;
+    const isValid = title && dueDate && categorySelected && subtasksExist;
     createTaskButton.disabled = !isValid;
     createTaskButton.classList.toggle('enabled', isValid);
 }
@@ -718,20 +719,20 @@ function setButtonToSave(editButton, listItem, input, subtaskText, deleteButton)
 function saveSubtaskText(listItem, input, subtaskText, editButton, deleteButton) {
     subtaskText.textContent = input.value;
     if (subtaskText.textContent !== '') {
-    listItem.classList.remove('errorSubtask')
-    listItem.replaceChild(subtaskText, input);
+        listItem.classList.remove('errorSubtask')
+        listItem.replaceChild(subtaskText, input);
 
-    editButton.innerHTML = '';
-    let editImg = document.createElement('img');
-    editImg.src = './assets/img/pensil_small.svg';
-    editImg.alt = 'Edit';
-    editButton.appendChild(editImg);
-    editButton.onclick = function () {
-        startEditingSubtask(listItem, subtaskText, editButton, deleteButton);
-    };
-    listItem.classList.remove('editing');
-    deleteButton.style.display = 'inline-block';
-    listItem.style.backgroundColor = '';
+        editButton.innerHTML = '';
+        let editImg = document.createElement('img');
+        editImg.src = './assets/img/pensil_small.svg';
+        editImg.alt = 'Edit';
+        editButton.appendChild(editImg);
+        editButton.onclick = function () {
+            startEditingSubtask(listItem, subtaskText, editButton, deleteButton);
+        };
+        listItem.classList.remove('editing');
+        deleteButton.style.display = 'inline-block';
+        listItem.style.backgroundColor = '';
     }
-    else {listItem.classList.add('errorSubtask')}
+    else { listItem.classList.add('errorSubtask') }
 }

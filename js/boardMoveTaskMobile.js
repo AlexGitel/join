@@ -10,9 +10,9 @@ doneListArrow = []
  */
 function moveTaskUpMobile(status, taskId) {
     event.stopPropagation();
-    if (status === 'progress') {moveTaskToMobile(taskId, 'todo')}
-    if (status === 'await') {moveTaskToMobile(taskId, 'progress')}
-    if (status === 'done') {moveTaskToMobile(taskId, 'await')}
+    if (status === 'progress') { moveTaskToMobile(taskId, 'todo') }
+    if (status === 'await') { moveTaskToMobile(taskId, 'progress') }
+    if (status === 'done') { moveTaskToMobile(taskId, 'await') }
 }
 
 /**
@@ -23,9 +23,9 @@ function moveTaskUpMobile(status, taskId) {
  */
 function moveTaskDownMobile(status, taskId) {
     event.stopPropagation();
-    if (status === 'todo') {moveTaskToMobile(taskId, 'progress')}
-    if (status === 'progress') {moveTaskToMobile(taskId, 'await')}
-    if (status === 'await') {moveTaskToMobile(taskId, 'done')}
+    if (status === 'todo') { moveTaskToMobile(taskId, 'progress') }
+    if (status === 'progress') { moveTaskToMobile(taskId, 'await') }
+    if (status === 'await') { moveTaskToMobile(taskId, 'done') }
 }
 
 
@@ -35,8 +35,7 @@ function moveTaskDownMobile(status, taskId) {
  * @param {string} targetList - this is the name of the list where you move a task to: bsp todo -> process
  */
 async function moveTaskToMobile(taskId, targetList) {
-
-    await updateTaskToDb(taskId, JSON.stringify({ "status": targetList }));
+    await updateTaskToDb(taskId, { status: targetList });
     document.getElementById('contentMainPageSite').innerHTML = await getAllTasksFromDataBase();
 }
 
@@ -45,13 +44,13 @@ async function moveTaskToMobile(taskId, targetList) {
  * adds the mobile button to move the task
  */
 async function checkMobileTaskMoveBtn() {
-    
+
     await pause(50);
     for (let index = 0; index < toDoListArrow.length; index++) {
         let taskId = 'moveTaskUp-' + toDoListArrow[index];
         document.getElementById(taskId).classList.add('d-none')
     }
-    
+
     for (let index = 0; index < doneListArrow.length; index++) {
         let taskId = 'moveTaskDown-' + doneListArrow[index];
         document.getElementById(taskId).classList.add('d-none')
@@ -66,8 +65,8 @@ async function checkMobileTaskMoveBtn() {
  * @param {string} taskStatus 
  */
 function holdTaskStatus(taskId, taskStatus) {
-    if (taskStatus === 'todo') {toDoListArrow.push(taskId)}
-    if (taskStatus === 'done') {doneListArrow.push(taskId)}
+    if (taskStatus === 'todo') { toDoListArrow.push(taskId) }
+    if (taskStatus === 'done') { doneListArrow.push(taskId) }
 }
 
 

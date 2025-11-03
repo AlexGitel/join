@@ -2,7 +2,6 @@
 let userInitials = 'AM'
 includeHTML();
 
-
 /**
  * opens the summary page - see summary.js as next
  */
@@ -17,7 +16,6 @@ async function openSummeryPage() {
     let initals = getUserInitials(localStorage.getItem('name'))
     document.getElementById('userIconValueHead').innerHTML = initals;
 }
-
 
 /**
  * opens the add task page 
@@ -37,7 +35,6 @@ async function openAddTaskPage() {
     setDateToday();
 }
 
-
 /**
  * opens the task dashbaord page
  */
@@ -52,7 +49,6 @@ async function openBoardPage() {
     let initals = getUserInitials(localStorage.getItem('name'))
     document.getElementById('userIconValueHead').innerHTML = initals;
 }
-
 
 /**
  * opens the contacts page
@@ -71,7 +67,6 @@ async function openContactsPage() {
         loadContactInformations(userId);
     };
 }
-
 
 /**
  * reloads the data in contacts after changing or creating a contact
@@ -92,7 +87,6 @@ async function reloadUserDataContactsPage(msgTxt) {
     };
     showMsgTxt(msgTxt);
 }
-
 
 /**
  * shows the message box after contacts changing or creating a contact
@@ -119,7 +113,6 @@ function setActiveTab(actualTab) {
     document.getElementById(actualTab).classList.add('tabActive');
 }
 
-
 /**
  * removes the css class of all sections that shows the active tab
  */
@@ -130,7 +123,6 @@ function clearAktiveTabs() {
     }
 }
 
-
 /**
  * navigatates the browser to the given url
  * 
@@ -139,7 +131,6 @@ function clearAktiveTabs() {
 function navigateToPage(path) {
     window.location.href = path;
 }
-
 
 /*+
  * shows the description: about join
@@ -155,14 +146,12 @@ function showHelp() {
     document.getElementById('userIconValueHead').innerHTML = initals;
 }
 
-
 /**
 * to get to previous site
 */
 function goBack() {
     window.location.href = document.referrer;
 }
-
 
 /** 
  * opens the drop_down_div with Links 
@@ -171,7 +160,6 @@ function showDropDownBox() {
     document.getElementById('drop_down_container').classList.remove('d-none');
     document.getElementById('drop_down_container').innerHTML = buildDropDownBox();
 }
-
 
 /** 
  * close the drop_down_div with Links 
@@ -184,7 +172,6 @@ function closeDropDownBox() {
  * open policy page
  */
 function openPrivacyPolicy() {
-    // setTimeout(() => { document.getElementById('header').classList.add('d-none'); }, 10);
     document.getElementById('policy_link').classList.add('tabActive');
     document.getElementById('policy_link').classList.add('pointerOff');
 }
@@ -193,11 +180,9 @@ function openPrivacyPolicy() {
  * open legal page
  */
 function openLegalPage() {
-    // setTimeout(() => { document.getElementById('header').classList.add('d-none'); }, 10);
     document.getElementById('legal_link').classList.add('tabActive');
     document.getElementById('legal_link').classList.add('pointerOff');
 }
-
 
 /**
  * opens the private policy in a new tab
@@ -207,7 +192,6 @@ function openPolicyInNewTab() {
     document.getElementById('policy_link').classList.add('pointerOff');
 }
 
-
 /**
  * opens the legal notice in a new tab
  */
@@ -216,6 +200,15 @@ async function openLegalInNewTab() {
     document.getElementById('legal_link').classList.add('pointerOff');
 }
 
+/**
+ * checks if a user is sigend in
+ */
+function checkIfValidLogin() {
+    let session = localStorage.getItem('activeUserStatus');
+    if (session === 'false') {
+        window.location.href = 'login.html';
+    }
+}
 
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
@@ -239,19 +232,7 @@ function includeHTML() {
             }
             xhttp.open("GET", file, true);
             xhttp.send();
-            /* Exit the function: */
             return;
         }
-    }
-}
-
-
-/**
- * checks if a user is sigend in
- */
-function checkIfValidLogin() {
-    let session = localStorage.getItem('activeUserStatus');
-    if (session === 'false') {
-        window.location.href = 'login.html';
     }
 }

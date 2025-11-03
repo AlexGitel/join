@@ -394,7 +394,7 @@ async function guestLogin() {
     localStorage.setItem('activeUserStatus', 'true');
     localStorage.setItem('userId', 'guest');
     localStorage.setItem('name', 'Guest');
-    let initals = getUserInitials('Guest')
-    window.location.href = 'summary.html'
-    //document.getElementById('userIconValueHead').innerHTML = initals;
+    let initals = getUserInitials('Guest');
+    window.location.href = 'summary.html';
+    document.getElementById('userIconValueHead').innerHTML = initals;
 }

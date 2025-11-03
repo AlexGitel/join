@@ -15,7 +15,6 @@ function addTaskToBoardViewList(task, status) {
     else if (status === 'done') inDoneList.push(task);
 }
 
-
 /**
  * returns a empty box div if a list on the dashboard is empty
  */
@@ -26,7 +25,6 @@ function checkTaskStatusList() {
     if (inAwaitList == '') inAwaitList.push(emptyBox('Await feedback'));
     if (inDoneList == '') inDoneList.push(emptyBox('Done'));
 }
-
 
 /**
  * appends a emptybox to each tasklist to be shown we a object is moved
@@ -57,7 +55,6 @@ function checkSubTasksDone(subTasks) {
     return (done)
 }
 
-
 /**
  * Builds the correct task type text shown on the task in the dashboard
  * 
@@ -70,7 +67,6 @@ function getTaskCategoryName(type) {
     if (type === 'userstory') categoryText = 'User Story';
     return (categoryText);
 }
-
 
 /**
  * Emptys all task lists on the dashboard to render a new view
@@ -85,7 +81,6 @@ function emptyTaskLists() {
     doneListArrow = [];
 }
 
-
 /**
  * gets the initials of a user for the usericon by splitting the surname and lastname and takes the first letter
  * 
@@ -97,7 +92,6 @@ function getUserInitials(userName) {
     let initials = names.map(names => names.charAt(0)).join("");
     return (initials);
 }
-
 
 /**
  * start the search process by typing a value (string) in the search field on the task dashboard
@@ -112,7 +106,6 @@ async function runSearchTask() {
     checkTaskStatusList();
     document.getElementById('boardTaskList').innerHTML = await buildBoardContent(toDoList, inProgressList, inAwaitList, inDoneList);
 }
-
 
 /**
  * searches for the value of the search input in the tasks in the database by name or description
@@ -137,14 +130,12 @@ function searchInTasks(tasksInDb) {
     return (tasks);
 }
 
-
 function debounce(func, delay) {
     return function () {
         clearTimeout(debounceTimeout);
         debounceTimeout = setTimeout(() => func.apply(this, arguments), delay);
     };
 }
-
 
 /**
  * moves a task from a list to a other list, controlled by drag and drop on the task dashboard
@@ -156,7 +147,6 @@ function moveTask(taskId, destination) {
     data = { status: destination }
     updateTaskToDb(taskId, data)
 }
-
 
 /**
  * This function writes the id of the element you want to drag and drop to a global variable 
@@ -170,7 +160,6 @@ function startDragging(id) {
     document.querySelectorAll('.emptyTaskContainerBoard').forEach(element => { element.style.display = 'none' });
 }
 
-
 /**
  * This function allows to move and trop a element on the task dashboard
  * 
@@ -179,7 +168,6 @@ function startDragging(id) {
 function allowDrop(ev) {
     ev.preventDefault();
 }
-
 
 /**
  * This function moves a task to a different List of Tasks
@@ -193,7 +181,6 @@ async function moveTo(targetList) {
     document.getElementById('contentMainPageSite').innerHTML = await recreatBoard();
     removeSubtaskStatus();
 }
-
 
 /**
  * gets all details (subtasks, asigned users, priority, description) of a task
@@ -214,7 +201,6 @@ async function getTaskDetails(taskId) {
     return ([typeName, task['type'], title, description, date, prioDiv, usersDiv, subtaskDiv]);
 }
 
-
 /**
  * closes the edit Task overlay
  */
@@ -223,7 +209,6 @@ function closeEditTaskOverlay() {
     document.body.classList.remove('no-scroll');
     openBoardPage();
 }
-
 
 /**
  * Switches a subtask from done to not down or from not done to done
@@ -248,7 +233,6 @@ async function changeSubTaskStatus(taskId, statusImg, subtaskId) {
     updateSubtaskStatusIcon(taskId + subtaskId, newStatus, subtaskId, taskId);
 }
 
-
 /**
  * updates the status icon of a subtask
  * 
@@ -269,7 +253,6 @@ function updateSubtaskStatusIcon(corollationId, newStatus, subtaskId, taskId) {
     }
 }
 
-
 /**
  * Opens the add Task overlay in the board and sets some standards e.g. prio medium
  */
@@ -286,7 +269,6 @@ async function boardAddTask() {
     setDateToday();
 }
 
-
 /**
  * closes the add Task overlay
  */
@@ -294,7 +276,6 @@ function closeBoardAddTaskOverlay() {
     document.getElementById('boardAddTaskOverlay').classList.remove('display');
     document.body.classList.remove('no-scroll');
 }
-
 
 /**
  * deletes a task
@@ -305,7 +286,6 @@ async function deleteTask(taskId) {
     await deleteTaskInDb(taskId);
     closeEditTaskOverlay();
 }
-
 
 /**
  * formats the shown date of a task
@@ -319,7 +299,6 @@ function formatDate(date) {
     formatedDate = formatedDate.toLocaleDateString('de-DE', options);
     return formatedDate;
 }
-
 
 /**
  * opens a given Task and shows the details that can be changed
@@ -336,7 +315,6 @@ async function editTask(taskId) {
     selectStoredContacts(taskData);
 }
 
-
 /**
  * Builds the "Edit Task Content" by fetching user names and creating a user dropdown.
  * 
@@ -349,7 +327,6 @@ async function getTaskInformations(taskData, taskId) {
     return buildEditTaskContent(userList, taskData, taskId);
 }
 
-
 /**
  * sets the prio after loading the task to bee shown at editTask
  */
@@ -359,7 +336,6 @@ async function setPrio() {
     if (taskData.prio === 'medium') { setMedium() }
     if (taskData.prio === 'urgent') { setUrgent() }
 }
-
 
 /**
  * builds the list of subtasks in editTask
@@ -374,7 +350,6 @@ function buildSubTasks(taskData) {
         }
     }
 }
-
 
 /**
  * 
@@ -397,8 +372,6 @@ async function closeOpenTaskOverlay(elementIdOverlay, elementIdContainer) {
     removeSubtaskStatus();
 }
 
-
-
 /**
  * sets the selected users of a task in the edit task window by getting them from the database
  * 
@@ -419,19 +392,17 @@ function selectStoredContacts(taskData) {
     }
 }
 
-
 /**
  * Updates a Task that has been updatet and closes the overlay
  *  
  * @param {string} taskId - Id of the edited task
  */
 async function updateDataEditTask(taskId) {
-
-    taskJson = getEditTaskData();
-    await updateTaskToDb(taskId, JSON.stringify(taskJson));
+    const taskData = await getTask(taskId);
+    const taskJson = getEditTaskData(taskData);
+    await updateTaskToDb(taskId, taskJson);
     closeOpenTaskOverlay('boardEditTaskOverlay', 'boardEditTaskContainer');
 }
-
 
 /**
  * Collects and returns all task data from the form fields as an object.
@@ -439,17 +410,28 @@ async function updateDataEditTask(taskId) {
  * @returns {Object} - The task data including date, description, title, priority, 
  *                     status, subtasks, type, and assigned users.
  */
-function getEditTaskData() {
+function getEditTaskData(taskData) {
+    const status = taskData?.status || "todo";
+
+    const subtasks = {};
+    document.querySelectorAll('#subtask-list .subtask-item').forEach((item, index) => {
+        const name = item.textContent.trim();
+        if (name) {
+            subtasks[`subtask${index}`] = { subtaskname: name, status: "open" };
+        }
+    });
+
+    const users = selectedContactsArray
+        .map(contact => contact.id)
+        .filter(id => id != null && id !== '');
+
     return {
-        date: document.getElementById('due-date').value.trim(),
-        description: document.getElementById('description').value.trim(),
-        name: document.getElementById('task-title').value.trim(),
-        prio: selectedPriority.toLowerCase(),
-        status: "todo",
-        subtasks: Array.from(document.querySelectorAll('#subtask-list .subtask-item')).map(item => ({
-            status: "open",
-            subtaskname: item.textContent.trim()
-        })),
-        users: selectedContactsArray.map(contact => contact.id)
+        date: document.getElementById('due-date')?.value.trim() || "",
+        description: document.getElementById('description')?.value.trim() || "",
+        name: document.getElementById('task-title')?.value.trim() || "",
+        prio: selectedPriority.toLowerCase() || "medium",
+        status: status,
+        subtasks: subtasks,
+        users: users
     };
 }

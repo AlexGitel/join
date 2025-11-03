@@ -6,61 +6,88 @@ let countTaskDone = 0;
 
 async function buildSummeryBoard(userName) {
     let tasks = await fetchAllTasks();
+    if (!tasks) tasks = {};
+
     countTasks(tasks);
     let tasksUrgent = getTasksUrgent(tasks);
     let taskDeadline = getTaskUrgentDeadline(tasks);
-    if (userName = 'Guest') { userName = '' }
-    let html = buildSummeryPage(countTaskToDo, countTaskDone, tasksUrgent, taskDeadline, countTaskSummery, countTaskInProgress, countTaskAwaitFeedback, userName);
+
+    if (userName === 'Guest') { userName = 'Guest'; }
+
+    let html = buildSummeryPage(
+        countTaskToDo,
+        countTaskDone,
+        tasksUrgent,
+        taskDeadline,
+        countTaskSummery,
+        countTaskInProgress,
+        countTaskAwaitFeedback,
+        userName
+    );
     return html;
 }
 
-
 function countTasks(tasks) {
-
-    emptyCountLists()
+    emptyCountLists();
     let tasksIdArray = Object.keys(tasks);
     countTaskSummery = tasksIdArray.length;
+
     for (let index = 0; index < tasksIdArray.length; index++) {
-        if (tasks[tasksIdArray[index]]['status'] == 'todo') countTaskToDo += 1;
-        if (tasks[tasksIdArray[index]]['status'] == 'progress') countTaskInProgress += 1;
-        if (tasks[tasksIdArray[index]]['status'] == 'await') countTaskAwaitFeedback += 1;
-        if (tasks[tasksIdArray[index]]['status'] == 'done') countTaskDone += 1;
+        const task = tasks[tasksIdArray[index]];
+        if (!task) continue;
+
+        switch (task.status) {
+            case 'todo':
+                countTaskToDo += 1;
+                break;
+            case 'progress':
+                countTaskInProgress += 1;
+                break;
+            case 'await':
+                countTaskAwaitFeedback += 1;
+                break;
+            case 'done':
+                countTaskDone += 1;
+                break;
+        }
     }
 }
-
 
 function emptyCountLists() {
     [countTaskSummery, countTaskToDo, countTaskInProgress, countTaskAwaitFeedback, countTaskDone] = [0, 0, 0, 0, 0];
 }
 
-
 function getTasksUrgent(tasks) {
-
-    let counter = 0
+    let counter = 0;
     let tasksIdArray = Object.keys(tasks);
 
     for (let index = 0; index < tasksIdArray.length; index++) {
-        if (tasks[tasksIdArray[index]]['prio'] == 'urgent' && tasks[tasksIdArray[index]]['status'] != 'done') counter += 1;
+        const task = tasks[tasksIdArray[index]];
+        if (!task) continue;
+
+        if (task.prio === 'urgent' && task.status !== 'done') counter += 1;
     }
     return counter;
 }
 
-
 function getTaskUrgentDeadline(tasks) {
-    let Deadlines = []
+    let deadLines = [];
     let tasksIdArray = Object.keys(tasks);
 
     for (let index = 0; index < tasksIdArray.length; index++) {
-        Deadlines.push(tasks[tasksIdArray[index]]['date'])
+        const task = tasks[tasksIdArray[index]];
+        if (!task || !task.date) continue;
+        deadLines.push(task.date);
     }
-    closest = findClosestDeadline(Deadlines);
-    closest = formatDate(closest)
-    return closest
+
+    if (deadLines.length === 0) return 'No deadlines';
+
+    let closest = findClosestDeadline(deadLines);
+    closest = formatDate(closest);
+    return closest;
 }
 
-
 function findClosestDeadline(dates) {
-
     let today = new Date();
     let closestDate = dates[0];
     let minDiff = Math.abs(new Date(dates[0]) - today);
@@ -75,46 +102,27 @@ function findClosestDeadline(dates) {
     return closestDate;
 }
 
-
-/**
- * to greet Users depending on the time of day
- * desktop
- */
+// === User greeting functions ===
 function userGreeting() {
     const greetingElement = document.getElementById('userGreeting');
-    const currentHour = new Date().getHours();
-    let greetingText;
+    if (!greetingElement) return;
 
-    if (currentHour >= 5 && currentHour < 12) {
-        greetingText = "Good morning ";
-    } else if (currentHour >= 12 && currentHour < 18) {
-        greetingText = "Good day ";
-    } else if (currentHour >= 18 && currentHour < 22) {
-        greetingText = "Good evening ";
-    } else {
-        greetingText = "Good night ";
-    }
-    greetingElement.textContent = `${greetingText}`;
+    const greetingText = getGreetingText();
+    greetingElement.textContent = greetingText;
 }
 
-
-/**
- * to greet Users depending on the time of day
- * start overlay mobile
- */
 function userGreetingMobile() {
     const greetingElement = document.getElementById('userGreetingMobile');
-    const currentHour = new Date().getHours();
-    let greetingText;
+    if (!greetingElement) return;
 
-    if (currentHour >= 5 && currentHour < 12) {
-        greetingText = "Good morning ";
-    } else if (currentHour >= 12 && currentHour < 18) {
-        greetingText = "Good day ";
-    } else if (currentHour >= 18 && currentHour < 22) {
-        greetingText = "Good evening ";
-    } else {
-        greetingText = "Good night ";
-    }
-    greetingElement.textContent = `${greetingText}`;
+    const greetingText = getGreetingText();
+    greetingElement.textContent = greetingText;
+}
+
+function getGreetingText() {
+    const currentHour = new Date().getHours();
+    if (currentHour >= 5 && currentHour < 12) return "Good morning ";
+    if (currentHour >= 12 && currentHour < 18) return "Good day ";
+    if (currentHour >= 18 && currentHour < 22) return "Good evening ";
+    return "Good night ";
 }

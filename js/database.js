@@ -9,9 +9,7 @@ let jsonTaskTemplate = {
     "users": ""
 }
 
-
 const baseUrl = 'https://realtime-database-d6d9e-default-rtdb.europe-west1.firebasedatabase.app/'
-
 
 /**
  * gets all Tasks from the database
@@ -22,7 +20,6 @@ async function fetchAllTasks() {
     let tasks = await (await fetch(baseUrl + "tasks.json")).json();
     return (tasks);
 }
-
 
 /**
  * gets all informations of a specific task
@@ -35,7 +32,6 @@ async function getTask(taskId) {
     return (task);
 }
 
-
 /**
  * gets all informations of a specific task
  * 
@@ -47,8 +43,6 @@ async function getsubtasks(taskId) {
     return (task);
 }
 
-
-
 /**
  * gets all Users from the database
  * 
@@ -58,7 +52,6 @@ async function getAllUsers() {
     let users = await (await fetch(baseUrl + "users.json")).json();
     return (users)
 }
-
 
 /**
  * load user information of a user
@@ -71,19 +64,8 @@ async function loadUserFromDb(userId) {
     return (user);
 }
 
-
 /**
  * adds a task to the database
- 
-* jsonTaskTemplate = {
-        "date": "string", 2024-04-01
-        "description": "string",
-        "name": "string",
-        "prio": "string", low, medium, high
-        "status": "string",
-        "subtasks": "json of subtasks",
-        "type": "string",
-        "users": "json of users"}
  * 
  * @param {json} data - a json with all informations that shall be writen in the database
  * 
@@ -91,33 +73,41 @@ async function loadUserFromDb(userId) {
 async function addTaskToDb(data) {
     await fetch(baseUrl + "tasks.json", {
         method: "POST",
-        header: {
+        headers: {
             "Content-Type": "application/json"
         },
-
         body: JSON.stringify(data)
     })
 }
-
 
 /**
  * updates task informations in the database
  * 
  * @param {string} taskId - id of the task 
- * @param {json} taskJson - json with the informations that shall be updated eg. {"name":"max default", "status":"done"} ...
- *
+ * @param {Object} taskJson - object with the informations that shall be updated eg. {"name":"max default", "status":"done"} ...
  */
 async function updateTaskToDb(taskId, taskJson) {
+    try {
+        const response = await fetch(baseUrl + "tasks/" + taskId + ".json", {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(taskJson)
+        });
 
-    await fetch(baseUrl + "tasks/" + taskId + ".json", {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: (taskJson)
-    })
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        return result;
+
+    } catch (error) {
+        console.error("Error updating task:", error);
+        throw error;
+    }
 }
-
 
 /**
  * adds a new user to the database
@@ -126,7 +116,7 @@ async function updateTaskToDb(taskId, taskJson) {
 async function addUserToDb(data) {
     let response = await fetch(baseUrl + "users.json", {
         method: "POST",
-        header: {
+        headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
@@ -136,21 +126,33 @@ async function addUserToDb(data) {
     return (responseId);
 }
 
-
 /**
- * updates a new user to the database
- * @param {json} params - user informations in a json 
+ * updates an existing user in the database
+ * @param {json} data - user informations in a json 
+ * @param {string} userId - ID of the user to update
  */
 async function updateUserToDb(data, userId) {
-    await fetch(baseUrl + "users/" + userId + ".json", {
-        method: "PATCH",
-        header: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-}
+    try {
+        let response = await fetch(baseUrl + "users/" + userId + ".json", {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let result = await response.json();
+        return result;
+
+    } catch (error) {
+        console.error("Error updating user:", error);
+        throw error;
+    }
+}
 
 /**
  * deletes a exisitng user in the database
@@ -164,9 +166,8 @@ async function deleteUserInDb(userId) {
             "Content-Type": "application/json"
         }
     })
-    await removeDelUserFromTask(userId)
+    await removeDelUserFromTask(userId);
 }
-
 
 /**
  * deletes a existing task in the database
@@ -181,7 +182,6 @@ async function deleteTaskInDb(taskId) {
         }
     })
 }
-
 
 /**
  * json template to create a new task
@@ -212,39 +212,25 @@ function dbTaskJsonTemplate(date, description, name, prio, status, subtasks, typ
     return (json)
 }
 
-
 /**
- * removes a deleted user from all tasks that the user is asigned to 
+ * removes a deleted user from all tasks that the user is assigned to 
  * 
  * @param {string} userId - Id of the deleted user
  */
 async function removeDelUserFromTask(userId) {
-
     let tasks = await fetchAllTasks();
-    let tasksIdArray = Object.keys(tasks);
+    if (!tasks) tasks = {};
 
-    for (let i = 0; i < tasksIdArray.length; i++) {
+    const tasksIdArray = Object.keys(tasks);
 
-        tasks = await fetchAllTasks();
-        let tasksUserArray
-        let userInTask = false
-        if (tasks[tasksIdArray[i]]['users'] !== undefined) { tasksUserArray = Object.keys(tasks[tasksIdArray[i]]['users']) } else { continue };
+    for (let taskId of tasksIdArray) {
+        const task = tasks[taskId];
+        if (!task || !task.users) continue;
 
-        for (let x = 0; x < tasksUserArray.length; x++) {
-            if ((tasks[tasksIdArray[i]]['users'][tasksUserArray[x]]) == userId) {
-                userInTask = true
-            }
+        const newUserList = task.users.filter(id => id !== userId);
+
+        if (newUserList.length !== task.users.length) {
+            await updateTaskToDb(taskId, { users: newUserList });
         }
-        if (userInTask === true) {
-            newUserList = (tasks[tasksIdArray[i]]['users']);
-
-            let indexVal = newUserList.indexOf(userId);
-            if (indexVal !== -1) { newUserList.splice(indexVal, 1); }
-
-            let json = ('{"users":' + JSON.stringify(newUserList) + '}');
-            updateTaskToDb(tasksIdArray[i], json)
-        }
-
-        userInTask = false;
     }
 }

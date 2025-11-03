@@ -228,7 +228,7 @@ async function validateAndSubmitForm() {
     let isValid = true;
     resetFormErrors();
 
-    if (name.value.trim() === '' || userRegex.test(phone.value) == false) {
+    if (name.value.trim() === '' || userRegex.test(name.value) == false) {
         document.getElementById('inputName').classList.add('error');
         document.getElementById('invalidAddContactNameTxt').classList.remove('d-none');
         isValid = false;

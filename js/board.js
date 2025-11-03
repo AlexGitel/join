@@ -175,9 +175,8 @@ function allowDrop(ev) {
  * @param {string} targetList - this is the name of the list where you move a task to: bsp todo -> process
  */
 async function moveTo(targetList) {
-
-    await updateTaskToDb(currentDraggedElement, JSON.stringify({ "status": targetList }));
-    moveTaskinLocalData(currentDraggedElement, targetList)
+    await updateTaskToDb(currentDraggedElement, { "status": targetList });
+    moveTaskinLocalData(currentDraggedElement, targetList);
     document.getElementById('contentMainPageSite').innerHTML = await recreatBoard();
     removeSubtaskStatus();
 }

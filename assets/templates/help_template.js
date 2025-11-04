@@ -68,7 +68,7 @@ function buildHelpPage() {
                     <h4>Deleting Cards</h4>
                     <span class="text">Once a task is completed, you can either move it to the "Done" list or delete it. Deleting a card will permanently remove it from the board. Please exercise caution when deleting cards, as this action is irreversible.</span> 
                     <span class="text"> Remember that using <span style="color: #29ABE2;">Join</span> effectively requires consistent updates from you and your team to ensure the board reflects the current state of your project.</span> 
-                    <span class="text">Have more questions about <span style="color: #29ABE2;">Join</span>? Feel free to contact us at [Your Contact Email]. We're here to help you!</span>
+                    <span class="text">Have more questions about <span style="color: #29ABE2;">Join</span>? Feel free to contact us at <a class="email" href="mailto:info@developerakademie.com">info@developerakademie.com</a>. We're here to help you!</span>
                 </div>
             </div>
                         

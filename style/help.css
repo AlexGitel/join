@@ -114,6 +114,10 @@ p {
     font-size: 20px;
 }
 
+.email {
+    color: #29ABE2;
+}
+
 
 @media(max-width: 1400px) {
     .content {

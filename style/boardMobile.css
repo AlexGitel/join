@@ -6,7 +6,6 @@
         max-width: 100%;
     }
 
-
     .boardTaskColumn {
         display: flex;
         flex-direction: row;
@@ -16,16 +15,13 @@
         margin-right: 0;
     }
 
-
     .taskContainerBoard {
         margin-right: 16px;
     }
 
-
     .boardRubrikHead {
         width: 100%;
     }
-
 
     .contentMainPage {
         overflow-y: scroll;
@@ -37,33 +33,27 @@
         background-color: #F6F7F8;
     }
 
-
     .emptyTaskContainerBoard {
         width: 100%;
     }
-
 
     .boardHeadDiv {
         height: auto;
         max-width: 100%;
     }
 
-
     .headLine_searchBar {
         height: auto;
     }
-
 
     .headLine_searchBar {
         margin-left: 16px;
     }
 
-
     .addTaskBoardBtn {
         display: none;
         width: 0;
     }
-
 
     .headLine_searchBar {
         flex-direction: column;
@@ -71,29 +61,24 @@
         width: 100%;
     }
 
-
     .searchContainer {
         width: 100%;
         margin-right: 32px;
     }
-
 
     .searchContainerAndAddTaskBtn {
         width: 100%;
         margin-bottom: 24px;
     }
 
-
     .headLineText {
         font-size: 47px;
         margin-bottom: 40px;
     }
 
-
     .addTaskBoardBtnMobile {
         display: block;
     }
-
 
     .boardHeadlineMobile {
         display: flex;
@@ -102,39 +87,32 @@
         width: 100%;
     }
 
-
     .boardAddTaskContainer {
         margin-left: 10px;
         margin-right: 10px;
     }
 
-
     .boardEditTaskContainer {
         max-height: 640px;
     }
-
 
     .addTaskBtnMobile {
         display: block;
     }
 
-
     .addTaskBtnDesk {
         display: none;
     }
-
 
     .openTaskType,
     .font-size20 {
         font-size: 16px;
     }
 
-
     .openTaskHeadline {
         font-size: 36px;
         padding-bottom: 25px !important;
     }
-
 
     .addTaskHeadline {
         padding-top: 0px !important;
@@ -151,19 +129,16 @@
     }
 }
 
-
 @media (max-width: 1160px) {
     .task-input-container {
         padding-top: 0;
     }
-
 
     .boardAddTaskContainer {
         margin-left: 10px;
         margin-right: 10px;
         overflow: hidden;
     }
-
 
     .addTaskHeadlineDiv {
         display: none
@@ -183,7 +158,6 @@
     }
 }
 
-
 @media(max-width: 500px) {
     .boardEditTaskContainer {
         width: 93%;
@@ -191,39 +165,32 @@
         padding: 40px 16px;
     }
 
-
     .boardAddTaskContainer {
         overflow: scroll;
     }
-
 
     .task-form {
         padding-top: 0px !important;
     }
 
-
     .openTaskHeadline {
         font-size: 30px;
     }
-
 
     .dropdown-option {
         max-width: 396px;
         width: 100%;
     }
 
-
     .priority-buttons {
         gap: 10px;
     }
-
 
     .futter-section,
     .head-section {
         padding-right: 16px;
     }
 }
-
 
 @media(max-width: 350px) {
     .priority-buttons button {

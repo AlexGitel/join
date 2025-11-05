@@ -2,6 +2,30 @@ body {
     height: 100%;
 }
 
+/* Overlay usually hidden */
+#orientation-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(18px);
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 20px;
+    line-height: 1.4;
+    transition: opacity 0.3s ease;
+}
+
+/* if active → show it */
+#orientation-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
 .display-none {
     display: none;
 }

@@ -27,10 +27,15 @@
     <script src="./js/navigation.js"></script>
 
     <title>Join</title>
-
 </head>
 
 <body onload="openContactsPage()">
+
+    <!-- to cover display in landscape mode -->
+    <div id="orientation-overlay">
+        Bitte drehe dein Gerät ins Hochformat! <br>
+        Please rotate your device to portrait mode!
+    </div>
 
     <div class="mainPage">
 
@@ -71,21 +76,27 @@
                                     <input type="text" placeholder="Name" class="inputContact" id="inputContactName"
                                         required>
                                     <img class="cursor" src="./assets/img/person.svg">
-                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactNameTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid name, must have at least 4 letters</a></div>
+                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactNameTxt"><a
+                                            style="text-decoration: none;cursor:default;">Please enter a valid name,
+                                            must have at least 4 letters</a></div>
                                 </div>
 
                                 <div class="inputContactInfoContainer" id="inputEmail">
                                     <input type="email" placeholder="Email" class="inputContact" id="inputContactEmail"
                                         required>
                                     <img class="cursor" src="./assets/img/mail.svg">
-                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactEmailTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid email adress</a></div>
+                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactEmailTxt"><a
+                                            style="text-decoration: none;cursor:default;">Please enter a valid email
+                                            adress</a></div>
                                 </div>
 
                                 <div class="inputContactInfoContainer" id="inputPhone">
                                     <input type="text" placeholder="Phone" class="inputContact" id="inputContactPhone"
                                         required>
                                     <img class="cursor" src="./assets/img/phone.svg">
-                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactPhoneTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid phone number e.g. +491234567</a></div>
+                                    <div class="invalidAddContactTxt d-none" id="invalidAddContactPhoneTxt"><a
+                                            style="text-decoration: none;cursor:default;">Please enter a valid phone
+                                            number e.g. +491234567</a></div>
                                 </div>
                             </div>
 
@@ -136,19 +147,25 @@
                                     <input type="text" placeholder="Name" class="inputContact" id="editInputContactName"
                                         required>
                                     <img class="cursor" src="./assets/img/person.svg">
-                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactNameTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid name, must have at least 4 letters</a></div>
+                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactNameTxt"><a
+                                            style="text-decoration: none;cursor:default;">Please enter a valid name,
+                                            must have at least 4 letters</a></div>
                                 </div>
                                 <div class="inputContactInfoContainer" id="editInputEmail">
                                     <input type="email" placeholder="Email" class="inputContact"
                                         id="editInputContactEmail" required>
                                     <img class="cursor" src="./assets/img/mail.svg">
-                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactEmailTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid email adress</a></div>
+                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactEmailTxt"><a
+                                            style="text-decoration: none;cursor:default;">Please enter a valid email
+                                            adress</a></div>
                                 </div>
                                 <div class="inputContactInfoContainer" id="editInputPhone">
                                     <input type="text" placeholder="Phone" class="inputContact"
                                         id="editInputContactPhone" required>
                                     <img class="cursor" src="./assets/img/phone.svg">
-                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactPhoneTxt"><a style="text-decoration: none;cursor:default;">Please enter a valid phone number e.g. +491234567</a></div>
+                                    <div class="invalidAddContactTxt d-none" id="invalidEditContactPhoneTxt"><a
+                                            style="text-decoration: none;cursor:default;">Please enter a valid phone
+                                            number e.g. +491234567</a></div>
                                 </div>
                             </div>
                             <div class="actionButtonsAddContact">
@@ -162,10 +179,29 @@
             </div>
         </div>
 
-        
-
-
     </div>
+
+    <!-- For checking if landscape mode active -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const overlay = document.getElementById("orientation-overlay");
+
+            function checkOrientation() {
+                const isMobile = window.innerWidth <= 950;
+                const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+
+                if (isMobile && isLandscape) {
+                    overlay.classList.add("active");
+                } else {
+                    overlay.classList.remove("active");
+                }
+            }
+
+            checkOrientation();
+            window.addEventListener("resize", checkOrientation);
+            window.addEventListener("orientationchange", checkOrientation);
+        });
+    </script>
 </body>
 
 <script>

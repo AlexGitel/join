@@ -116,7 +116,7 @@ function navigateToPage(path) {
  * shows the description: about join
  */
 function showHelp() {
-    document.getElementById('contentMainPageSite').innerHTML = buildHelpPage();  // is in help_template.js
+    document.getElementById('contentMainPageSite').innerHTML = buildHelpPage();
     document.getElementById('questionIcon').classList.add('d-none');
     document.getElementById('summaryPage').classList.remove('tabActive');
     document.getElementById('addTaskPage').classList.remove('tabActive');
@@ -130,7 +130,7 @@ function showHelp() {
 * to get to previous site
 */
 function goBack() {
-    window.location.href = document.referrer;
+    window.history.back();
 }
 
 /** 

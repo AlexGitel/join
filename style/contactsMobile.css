@@ -1,3 +1,27 @@
+/* Overlay usually hidden */
+#orientation-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(18px);
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 20px;
+    line-height: 1.4;
+    transition: opacity 0.3s ease;
+}
+
+/* if active → show it */
+#orientation-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
 @media(max-width: 1400px) {
     .contentMainPage {
         padding-left: 0px;
@@ -15,7 +39,6 @@
         border-radius: 30px 30px 0 0;
         padding: 0 0 0 24px;
     }
-
 
     .addContact {
         margin: 0;
@@ -131,7 +154,6 @@
     }
 }
 
-
 @media(max-width: 1100px) {
 
     .contacts-overlay-mobile {
@@ -234,7 +256,6 @@
         position: relative;
     }
 
-
     .contentMainPage {
         padding-left: 0px !important;
         background-color: white;
@@ -267,7 +288,6 @@
         z-index: 7;
         width: 100%;
         height: calc(100vh - 160px);
-        /* background-color: #F6F7F8; */
         background-color: #D1D1D1;
         display: none;
     }
@@ -313,12 +333,10 @@
     }
 }
 
-
 @media(max-width: 420px) {
     .addContactContainer {
         width: auto;
     }
-
 
     .contactsPage {
         max-width: 450px;
@@ -382,5 +400,11 @@
     .better-with-a-team-mobile {
         width: 200px;
         height: 100px;
+    }
+
+    .popup_contact_created,
+    .popUpActionSaved {
+        width: 300px;
+        height: 60px;
     }
 }

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="./style/navBarMobile.css">
     <link rel="stylesheet" href="./style/user_story.css">
     <script src="./js/navigation.js"></script>
-    
+
     <script src="./js/board.js"></script>
     <script src="./js/boardHtml.js"></script>
     <script src="./js/boardMoveTaskMobile.js"></script>
@@ -33,12 +33,19 @@
     <script src="./js/contacts.js"></script>
     <script src="./js/logout.js"></script>
 
-   
+
 
     <title>Join</title>
 </head>
 
 <body onload="openBoardPage()">
+
+    <!-- to cover display in landscape mode -->
+    <div id="orientation-overlay">
+        Bitte drehe dein Gerät ins Hochformat! <br>
+        Please rotate your device to portrait mode!
+    </div>
+
     <div class="mainPage">
 
         <div w3-include-html="./assets/templates/desktop_template.html"></div>
@@ -46,7 +53,8 @@
 
         <div class="contentMainPage" id="contentMainPageSite"></div>
 
-        <div id="boardEditTaskOverlay" class="boardEditTaskOverlay" onclick="closeOpenTaskOverlay('boardEditTaskOverlay', 'boardEditTaskContainer')"></div>
+        <div id="boardEditTaskOverlay" class="boardEditTaskOverlay"
+            onclick="closeOpenTaskOverlay('boardEditTaskOverlay', 'boardEditTaskContainer')"></div>
 
         <div id="boardAddTaskOverlay" class="boardAddTaskOverlay">
             <div id="boardAddTaskContainer" class="boardAddTaskContainer  fly-in">
@@ -61,6 +69,28 @@
         </div>
 
     </div>
+
+    <!-- For checking if landscape mode active -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const overlay = document.getElementById("orientation-overlay");
+
+            function checkOrientation() {
+                const isMobile = window.innerWidth <= 950;
+                const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+
+                if (isMobile && isLandscape) {
+                    overlay.classList.add("active");
+                } else {
+                    overlay.classList.remove("active");
+                }
+            }
+
+            checkOrientation();
+            window.addEventListener("resize", checkOrientation);
+            window.addEventListener("orientationchange", checkOrientation);
+        });
+    </script>
 </body>
 
 <script>

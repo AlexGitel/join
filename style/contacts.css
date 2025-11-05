@@ -2,19 +2,16 @@
     box-sizing: border-box;
 }
 
-
 .mainPage {
     display: flex;
     height: 100%;
 }
-
 
 .contactsPage {
     display: flex;
     max-width: 1208px;
     height: 100%;
 }
-
 
 .contactList {
     background-color: #FFFFFF;
@@ -25,14 +22,12 @@
     align-items: center;
 }
 
-
 .addContactButtonContainer {
     margin: 0;
     height: 101px;
     display: flex;
     align-items: center;
 }
-
 
 .addNewContactButton {
     display: flex;
@@ -49,18 +44,15 @@
     cursor: pointer;
 }
 
-
 .cursor {
     cursor: pointer;
 }
-
 
 .hover:hover {
     background-color: #29ABE2;
     box-shadow: 0px 4px 4px 0px #00000040;
     transition: background-color 0.2s;
 }
-
 
 .contactsUserIconList {
     color: white;
@@ -75,7 +67,6 @@
     border: 2px solid #FFFFFF
 }
 
-
 .contactShortInfo {
     align-items: center;
     justify-content: flex-start;
@@ -84,22 +75,18 @@
     gap: 54px;
 }
 
-
 .font-size-47 {
     font-size: 47px;
 }
-
 
 .name-size {
     font-size: 47px;
     font-weight: 500;
 }
 
-
 .display-flex {
     display: flex;
 }
-
 
 .contactNameAction {
     display: flex;
@@ -108,17 +95,14 @@
     height: 100%;
 }
 
-
 .contactInfoValue {
     font-size: 16px;
 }
-
 
 .contactInfoTitle {
     font-size: 16px;
     font-weight: 700;
 }
-
 
 .contactInfoDiv {
     height: 53px;
@@ -127,17 +111,14 @@
     justify-content: space-between;
 }
 
-
 .contactInfoPhoneNumberDiv {
     margin-top: 15px;
 }
-
 
 .emailAddress {
     color: #007CEE;
     font-size: 16px;
 }
-
 
 .contactListEntry {
     width: 352px;
@@ -149,18 +130,15 @@
     cursor: pointer;
 }
 
-
 .contactListEntry:hover {
     background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
 }
-
 
 .contactListEntryClicked {
     background-color: #2A3647;
     color: white;
     pointer-events: none;
 }
-
 
 .contactListEntryDiv {
     height: 48px;
@@ -169,20 +147,17 @@
     justify-content: space-between;
 }
 
-
 .contactListLetter {
     display: flex;
     width: 352px;
     flex-direction: column;
 }
 
-
 .contactListLetterLine {
     width: 352px;
     border: 1px solid #D1D1D1;
     margin: 7px 0 7px 0
 }
-
 
 .contactsScrollList {
     overflow-y: auto;
@@ -192,7 +167,6 @@
     flex-direction: column;
     align-items: center;
 }
-
 
 .addContactOverlay {
     position: fixed;
@@ -205,28 +179,23 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-
 .font-size-p-tag {
     font-size: 27px;
 }
-
 
 .display {
     display: flex;
 }
 
-
 .display-block {
     display: block !important;
 }
-
 
 .contentMainPage {
     padding-left: 232px;
     background-color: #F6F7F8;
     height: 100vh;
 }
-
 
 .taskUserIcon {
     width: 42px;
@@ -239,7 +208,6 @@
     align-items: center;
 }
 
-
 .overlay_popup_contact_created {
     position: fixed;
     width: 100%;
@@ -250,7 +218,6 @@
     display: flex;
     justify-content: center;
 }
-
 
 .popup_contact_created {
     width: 326px;
@@ -266,17 +233,14 @@
     z-index: 20;
 }
 
-
 .better-with-a-team-mobile {
     display: none;
 }
-
 
 .showContactInfoCloseBtn,
 .mobileActionBtn {
     display: none;
 }
-
 
 .dropDownContactInfo {
     width: 116px;
@@ -299,7 +263,6 @@
     display: flex;
     margin: 0;
 }
-
 
 .dropDownContactInfoContainer {
     width: 100vw;

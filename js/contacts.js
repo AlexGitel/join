@@ -257,12 +257,14 @@ async function validateAndSubmitForm() {
  * resets the form errors that are displayed when the given values are invalid
  */
 function resetFormErrors() {
-    document.getElementById('inputName').classList.remove('error');
-    document.getElementById('inputEmail').classList.remove('error');
-    document.getElementById('inputPhone').classList.remove('error');
-    document.getElementById('editInputName').classList.remove('error');
-    document.getElementById('editInputEmail').classList.remove('error');
-    document.getElementById('editInputPhone').classList.remove('error');
+    const ids = [
+        'inputName', 'inputEmail', 'inputPhone', 'editInputName', 'editInputEmail', 'editInputPhone'
+    ];
+
+    ids.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) element.classList.remove('error');
+    });
 }
 
 
@@ -344,18 +346,23 @@ async function validateAndSubmitEditForm(userId) {
 
 
 function clearNewContactValues() {
-    document.getElementById('inputContactName').value = '';
-    document.getElementById('inputContactEmail').value = '';
-    document.getElementById('inputContactPhone').value = '';
-    document.getElementById('invalidAddContactNameTxt').classList.add('d-none');
-    document.getElementById('invalidAddContactEmailTxt').classList.add('d-none');
-    document.getElementById('invalidAddContactPhoneTxt').classList.add('d-none');
-    document.getElementById('invalidEditContactNameTxt').classList.add('d-none');
-    document.getElementById('invalidEditContactEmailTxt').classList.add('d-none');
-    document.getElementById('invalidEditContactPhoneTxt').classList.add('d-none');
-    document.getElementById('inputName').classList.remove('error');
-    document.getElementById('inputEmail').classList.remove('error');
-    document.getElementById('inputPhone').classList.remove('error');
+    const fields = [
+        'inputContactName', 'inputContactEmail', 'inputContactPhone',
+        'invalidAddContactNameTxt', 'invalidAddContactEmailTxt', 'invalidAddContactPhoneTxt',
+        'invalidEditContactNameTxt', 'invalidEditContactEmailTxt', 'invalidEditContactPhoneTxt',
+        'inputName', 'inputEmail', 'inputPhone'
+    ];
+
+    fields.forEach(id => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        if (id.startsWith('invalid')) element.classList.add('d-none');
+
+        if (id.startsWith('inputContact')) element.value = '';
+
+        if (id.startsWith('input')) element.classList.remove('error');
+    });
 }
 
 

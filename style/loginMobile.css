@@ -3,7 +3,6 @@
     animation: signMove 1s forwards;
 }
 
-
 @keyframes signMove {
     0% {
         bottom: -30vh;
@@ -23,7 +22,6 @@
     }
 }
 
-
 .invalidLoginTxt {
     color: rgba(255, 129, 144, 1);
     font-size: 12px;
@@ -31,16 +29,13 @@
     position: absolute;
 }
 
-
 .display {
     display: block;
 }
 
-
 .valueNotValid {
     border: 1px solid rgba(255, 129, 144, 1) !important;
 }
-
 
 .inputInvalidText {
     font-size: 12px;
@@ -49,11 +44,9 @@
     top: 50px;
 }
 
-
 .display-flex {
     display: flex;
 }
-
 
 .policyCheckBox {
     font-size: 12px;
@@ -61,25 +54,9 @@
     top: 50px;
 }
 
-
 .flex-column {
     flex-direction: column;
 }
-
-
-@media (max-width: 1550px) {
-    .not_a_user {
-        padding: 67px 80px 0 0;
-        gap: 0px;
-    }
-
-    .join-logo {
-        width: 64px;
-        height: 78px;
-        margin: 20px 0 0 25px;
-    }
-}
-
 
 @media(max-width: 1400px) {
     .join-logo {
@@ -88,12 +65,10 @@
         margin: 20px 0 0 25px;
     }
 
-
     .not_a_user {
         padding: 30px 50px 0 0;
         gap: 15px;
     }
-
 
     .animated-logo_mobile {
         display: flex;
@@ -149,39 +124,32 @@
         display: none;
     }
 
-
     .for_mobile {
         display: flex;
         padding-bottom: 0;
     }
-
 
     .sign-up-container {
         width: 396px;
         height: 595px;
     }
 
-
     .login-box {
         width: 396px;
         height: 410px;
     }
 
-
     h1 {
         font-size: 47px;
     }
-
 
     .underline_blue {
         width: 88px;
     }
 
-
     .input-group {
         max-width: 364px;
     }
-
 
     .buttons {
         flex-direction: column;
@@ -194,12 +162,10 @@
         height: 50px;
     }
 
-
     .buttons {
         gap: 21px;
         margin: 15px 0 0 0;
     }
-
 
     .invalidLoginTxt {
         padding-top: 12px;
@@ -214,46 +180,42 @@
         margin: 15px 0 0 15px;
     }
 
-
     .login-box {
         width: 300px;
         height: 396px;
     }
-
 
     .sign-up-container {
         width: 300px;
         height: 455px;
     }
 
-
     h1 {
         font-size: 35px;
         padding-bottom: 8px;
     }
 
-
     .input-group {
         max-width: 280px;
     }
 
+    .input-group .icon {
+        transform: translateY(30%);
+    }
 
     .input-group input {
         padding: 8px 40px 8px 8px;
         font-size: 16px;
     }
 
-
     .signup-btn {
         padding: 12px 20px;
     }
-
 
     footer {
         bottom: 25px;
         gap: 20px;
     }
-
 
     .for_mobile {
         padding-bottom: 10px;

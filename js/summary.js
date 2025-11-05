@@ -1,10 +1,10 @@
-let countTaskSummery = 0;
+let countTaskSummary = 0;
 let countTaskToDo = 0;
 let countTaskInProgress = 0;
 let countTaskAwaitFeedback = 0;
 let countTaskDone = 0;
 
-async function buildSummeryBoard(userName) {
+async function buildSummaryBoard(userName) {
     let tasks = await fetchAllTasks();
     if (!tasks) tasks = {};
 
@@ -14,12 +14,12 @@ async function buildSummeryBoard(userName) {
 
     if (userName === 'Guest') { userName = 'Guest'; }
 
-    let html = buildSummeryPage(
+    let html = buildSummaryPage(
         countTaskToDo,
         countTaskDone,
         tasksUrgent,
         taskDeadline,
-        countTaskSummery,
+        countTaskSummary,
         countTaskInProgress,
         countTaskAwaitFeedback,
         userName
@@ -30,7 +30,7 @@ async function buildSummeryBoard(userName) {
 function countTasks(tasks) {
     emptyCountLists();
     let tasksIdArray = Object.keys(tasks);
-    countTaskSummery = tasksIdArray.length;
+    countTaskSummary = tasksIdArray.length;
 
     for (let index = 0; index < tasksIdArray.length; index++) {
         const task = tasks[tasksIdArray[index]];
@@ -54,7 +54,7 @@ function countTasks(tasks) {
 }
 
 function emptyCountLists() {
-    [countTaskSummery, countTaskToDo, countTaskInProgress, countTaskAwaitFeedback, countTaskDone] = [0, 0, 0, 0, 0];
+    [countTaskSummary, countTaskToDo, countTaskInProgress, countTaskAwaitFeedback, countTaskDone] = [0, 0, 0, 0, 0];
 }
 
 function getTasksUrgent(tasks) {

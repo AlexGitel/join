@@ -1,17 +1,16 @@
-// TEMP
-let userInitials = 'AM'
+
 includeHTML();
 
 /**
  * opens the summary page - see summary.js as next
  */
-async function openSummeryPage() {
+async function openSummaryPage() {
     checkIfValidLogin();
     clearAktiveTabs();
-    setActiveTab('summeryPage');
-    document.getElementById('contentMainPageSite').innerHTML = await buildSummeryBoard(localStorage.getItem('name'));
-    userGreeting(); // function is in summary.js
-    userGreetingMobile() // function is in summary.js
+    document.getElementById('contentMainPageSite').innerHTML = await buildSummaryBoard(localStorage.getItem('name'));
+    setTimeout(() => setActiveTab('summaryPage'), 100);
+    userGreeting();
+    userGreetingMobile();
     document.getElementById('header').classList.remove('d-none');
     let initals = getUserInitials(localStorage.getItem('name'))
     document.getElementById('userIconValueHead').innerHTML = initals;
@@ -23,8 +22,8 @@ async function openSummeryPage() {
 async function openAddTaskPage() {
     checkIfValidLogin();
     clearAktiveTabs();
-    setActiveTab('addTaskPage');
     document.getElementById('contentMainPageSite').innerHTML = await buildAddTaskPage('openAddTaskPage');
+    setTimeout(() => setActiveTab('addTaskPage'), 100);
     document.getElementById('header').classList.remove('d-none');
     setMedium();
     await initializeAddTaskPage();
@@ -42,8 +41,8 @@ async function openBoardPage() {
     usersDataArray = await getAllUsers();
     checkIfValidLogin();
     clearAktiveTabs();
-    setActiveTab('boardPage');
     document.getElementById('contentMainPageSite').innerHTML = await getAllTasksFromDataBase();
+    setTimeout(() => setActiveTab('boardPage'), 100);
     removeSubtaskStatus();
     document.getElementById('header').classList.remove('d-none');
     let initals = getUserInitials(localStorage.getItem('name'))
@@ -56,8 +55,8 @@ async function openBoardPage() {
 async function openContactsPage() {
     checkIfValidLogin();
     clearAktiveTabs();
-    setActiveTab('contactPage');
     document.getElementById('contentMainPageSite').innerHTML = await buildContactsPage();
+    setTimeout(() => setActiveTab('contactPage'), 100);
     document.getElementById('header').classList.remove('d-none');
     let initals = getUserInitials(localStorage.getItem('name'));
     document.getElementById('userIconValueHead').innerHTML = initals;
@@ -105,25 +104,6 @@ function showMsgTxt(msgTxt) {
 }
 
 /**
- * marks the acutal used section of the page by adding a css class
- * 
- * @param {string} actualTab - name of the active tab e.g. summary, addtask, board, contacts
- */
-function setActiveTab(actualTab) {
-    document.getElementById(actualTab).classList.add('tabActive');
-}
-
-/**
- * removes the css class of all sections that shows the active tab
- */
-function clearAktiveTabs() {
-    let tabList = ['summeryPage', 'addTaskPage', 'boardPage', 'contactPage'];
-    for (let index = 0; index < tabList.length; index++) {
-        document.getElementById(tabList[index]).classList.remove('tabActive');
-    }
-}
-
-/**
  * navigatates the browser to the given url
  * 
  * @param {string} path 
@@ -138,7 +118,7 @@ function navigateToPage(path) {
 function showHelp() {
     document.getElementById('contentMainPageSite').innerHTML = buildHelpPage();  // is in help_template.js
     document.getElementById('questionIcon').classList.add('d-none');
-    document.getElementById('summeryPage').classList.remove('tabActive');
+    document.getElementById('summaryPage').classList.remove('tabActive');
     document.getElementById('addTaskPage').classList.remove('tabActive');
     document.getElementById('boardPage').classList.remove('tabActive');
     document.getElementById('contactPage').classList.remove('tabActive');
@@ -172,16 +152,28 @@ function closeDropDownBox() {
  * open policy page
  */
 function openPrivacyPolicy() {
-    document.getElementById('policy_link').classList.add('tabActive');
-    document.getElementById('policy_link').classList.add('pointerOff');
+    clearAktiveTabs();
+    setTimeout(() => {
+        const policyLink = document.getElementById('policy_link');
+        if (policyLink) {
+            policyLink.classList.add('tabActive');
+            policyLink.classList.add('pointerOff');
+        }
+    }, 100);
 }
 
 /**
  * open legal page
  */
 function openLegalPage() {
-    document.getElementById('legal_link').classList.add('tabActive');
-    document.getElementById('legal_link').classList.add('pointerOff');
+    clearAktiveTabs();
+    setTimeout(() => {
+        const legalLink = document.getElementById('legal_link');
+        if (legalLink) {
+            legalLink.classList.add('tabActive');
+            legalLink.classList.add('pointerOff');
+        }
+    }, 100);
 }
 
 /**

@@ -6,8 +6,8 @@
 */
 function handleNavigation(tabId) {
     switch (tabId) {
-        case 'summeryPage':
-            openSummeryPage();
+        case 'summaryPage':
+            openSummaryPage();
             break;
         case 'addTaskPage':
             openAddTaskPage();
@@ -34,18 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 /**
  * Marks the current active tab for both sidebar and navbar by adding a CSS class.
  * 
- * @param {string} actualTab - The ID of the active tab (e.g., 'summeryPage', 'addTaskPage').
+ * @param {string} actualTab - The ID of the active tab (e.g., 'summaryPage', 'addTaskPage').
  */
 function setActiveTab(actualTab) {
     clearAktiveTabs();
-    // Add the active class to the sidebar and navbar buttons with the same ID
     const activeElements = document.querySelectorAll(`#${actualTab}`);
     activeElements.forEach(element => {
-        element.classList.add('tabActive');
+        if (element) element.classList.add('tabActive');
     });
 }
 
@@ -54,8 +52,6 @@ function setActiveTab(actualTab) {
  * Removes the 'tabActive' CSS class from all tabs in both sidebar and navbar.
  */
 function clearAktiveTabs() {
-    const tabs = document.querySelectorAll('.sideBarTask, .navButton');
-    tabs.forEach(tab => {
-        tab.classList.remove('tabActive');
-    });
+    const tabs = document.querySelectorAll('.sideBarTask, .navButton, .tabActive');
+    tabs.forEach(tab => tab.classList.remove('tabActive'));
 }

@@ -1,4 +1,4 @@
-function buildSummeryPage(tasksToDo, tasksDone, tasksUrgent, taskDeadline, tasksInBoard, tasksInProgres, tasksAwaiting, userName) {
+function buildSummaryPage(tasksToDo, tasksDone, tasksUrgent, taskDeadline, tasksInBoard, tasksInProgres, tasksAwaiting, userName) {
 
     return /*html*/ `
     <div class="summary_content">

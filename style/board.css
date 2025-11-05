@@ -2,22 +2,18 @@ body {
     height: 100%;
 }
 
-
 .display-none {
     display: none;
 }
-
 
 .mainPage {
     display: flex;
     height: 100%;
 }
 
-
 body.no-scroll {
     overflow-y: auto;
 }
-
 
 .boardHeadDiv {
     height: 232px;
@@ -26,13 +22,11 @@ body.no-scroll {
     max-width: 1208px;
 }
 
-
 .contentMainPage {
     padding-left: 232px;
     background-color: #F6F7F8;
     height: 100%;
 }
-
 
 .headLine_searchBar {
     display: flex;
@@ -43,12 +37,10 @@ body.no-scroll {
     width: 1056px;
 }
 
-
 .headLineText {
     font-size: 61px;
     font-weight: 700;
 }
-
 
 .boardRubrikHead {
     width: 244px;
@@ -62,12 +54,10 @@ body.no-scroll {
     font-size: 20px;
 }
 
-
 .boardRubrikTitle {
     font-size: 20px;
     font-weight: 700;
 }
-
 
 .columnTitleDiv {
     display: flex;
@@ -76,7 +66,6 @@ body.no-scroll {
     width: 1208px;
     margin-top: -24px;
 }
-
 
 .searchContainer {
     width: 312px;
@@ -90,12 +79,10 @@ body.no-scroll {
     background-color: white;
 }
 
-
 .searchContainer:focus-within {
     outline: none !important;
     border: 1px solid #29ABE2;
 }
-
 
 .inputSearch {
     border: none;
@@ -105,11 +92,9 @@ body.no-scroll {
     outline: none;
 }
 
-
 .inputSearch::placeholder {
     color: #D1D1D1;
 }
-
 
 .searchContainerAndAddTaskBtn {
     width: 504px;
@@ -118,13 +103,11 @@ body.no-scroll {
     align-items: center;
 }
 
-
 .addTaskBoardBtn {
     width: 160px;
     height: 48px;
     background-image: url(./../assets/img/addTaskButton.svg);
 }
-
 
 .addTaskBoardBtn:hover {
     background-image: url(./../assets/img/addTaskButtonHover.svg);
@@ -132,7 +115,6 @@ body.no-scroll {
     transition: box-shadow 0.1s;
     border-radius: 10px;
 }
-
 
 .addSubTaskBtn {
     background-image: url(./../assets/img/plusSign.svg);
@@ -142,13 +124,11 @@ body.no-scroll {
     height: 24px;
 }
 
-
 .addSubTaskBtn:hover {
     background-image: url(./../assets/img/plusSignHover.svg);
     animation-timing-function: ease-out;
     animation-duration: 100ms;
 }
-
 
 .boardTasksDiv {
     display: flex;
@@ -157,13 +137,11 @@ body.no-scroll {
     background-color: #F6F7F8;
 }
 
-
 .boardTaskColumn {
     width: 246px;
     margin-right: 32px;
     margin-bottom: 24px;
 }
-
 
 .taskContainerBoard {
     background-color: white;
@@ -174,7 +152,6 @@ body.no-scroll {
     width: 252px;
     box-shadow: 0px 0px 10px 3px #00000014;
 }
-
 
 .emptyTaskContainerBoard {
     background-color: #E7E7E7;
@@ -191,23 +168,19 @@ body.no-scroll {
     height: 48px;
 }
 
-
 .taskTitle {
     color: #2A3647;
     font-weight: 700;
     font-size: 16px;
 }
 
-
 .taskContainerInnerPadding {
     padding-top: 24px;
 }
 
-
 .subTaskProgressValues {
     font-size: 12px;
 }
-
 
 .taskCategory {
     width: max-content;
@@ -220,28 +193,23 @@ body.no-scroll {
     padding: 4px 16px 4px 16px;
 }
 
-
 .userstory {
     background-color: #0038FF;
 }
 
-
 .technical {
     background-color: #1FD7C1;
 }
-
 
 .flex-column {
     display: flex;
     flex-direction: column;
 }
 
-
 .taskUser-prio {
     display: flex;
     justify-content: space-between;
 }
-
 
 .taskUserIcon {
     width: 32px;
@@ -253,7 +221,6 @@ body.no-scroll {
     justify-content: center;
     align-items: center;
 }
-
 
 .userIconsContainer {
     display: flex;
@@ -268,7 +235,6 @@ body.no-scroll {
     justify-content: space-between;
 }
 
-
 progress {
     appearance: none;
     /* removed system owned styling */
@@ -280,21 +246,17 @@ progress {
     overflow: hidden;
 }
 
-
 progress::-webkit-progress-bar {
     background-color: #F4F4F4;
 }
-
 
 progress::-webkit-progress-value {
     background-color: #4589FF;
 }
 
-
 progress::-moz-progress-bar {
     background-color: #4589FF
 }
-
 
 progress {
     background-color: #F4F4F4;
@@ -303,11 +265,9 @@ progress {
     width: 128px;
 }
 
-
 .rotation {
     rotate: -5deg;
 }
-
 
 .boardEditTaskOverlay {
     position: fixed;
@@ -322,7 +282,6 @@ progress {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-
 .boardEditTaskContainer {
     max-width: 525px;
     width: 100%;
@@ -332,11 +291,10 @@ progress {
     flex-direction: column;
     padding: 40px;
     max-height: 871px;
-    
+
     z-index: 11;
     overflow: auto;
 }
-
 
 .editTaskCategory {
     font-size: 23px;
@@ -349,26 +307,21 @@ progress {
     padding-top: 4px;
 }
 
-
 .font-size19 {
     font-size: 19px;
 }
-
 
 .font-size20 {
     font-size: 20px;
 }
 
-
 .textColorColumnTitle {
     color: #2A3647;
 }
 
-
 .padTop25 {
     padding-top: 25px;
 }
-
 
 .taskOpenColumnHeadline {
     width: 124px;
@@ -377,12 +330,10 @@ progress {
     align-items: center;
 }
 
-
 .taskUserDiv {
     align-items: center;
     height: 56px;
 }
-
 
 .userIconTaskOpen {
     width: 42px;
@@ -391,14 +342,12 @@ progress {
     margin-left: 16px;
 }
 
-
 .openTaskUserList {
     padding-top: 7px;
     padding-left: 16px;
     height: 116px;
     overflow-y: auto;
 }
-
 
 .userIconForOpenTask {
     margin-right: 16px;

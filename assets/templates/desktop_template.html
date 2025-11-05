@@ -2,15 +2,16 @@
 <div class="topBar">
     <div class="headerText">Kanban Project Management Tool</div>
 
-        <img class="d-none" src="./assets/img/join.svg" alt=""> <!-- img for mobile screen only -->
+    <img class="d-none" src="./assets/img/join.svg" alt=""> <!-- img for mobile screen only -->
 
     <div id="header" class="topBarIcons d-none">
         <div onclick="showHelp()">
             <img id="questionIcon" class="questionIcon cursor" src="./assets/img/helpIcon.svg">
         </div>
 
-        <div onclick="showDropDownBox()" class="userIcon cursor"><a id="userIconValueHead" style="color:#29ABE2">G</a></div>
-        <div onclick="closeDropDownBox()" class="drop_down_container d-none" id="drop_down_container"></div>   
+        <div onclick="showDropDownBox()" class="userIcon cursor"><a id="userIconValueHead" style="color:#29ABE2">G</a>
+        </div>
+        <div onclick="closeDropDownBox()" class="drop_down_container d-none" id="drop_down_container"></div>
     </div>
 </div>
 
@@ -22,7 +23,7 @@
         <img onclick="navigateToPage('summary.html')" class="sideBarImg cursor" src="./assets/img/joinLogo.svg">
 
         <div class="sideBarSectionList">
-            <div onclick="navigateToPage('summary.html')" id="summeryPage" class="sideBarTask"> 
+            <div onclick="navigateToPage('summary.html')" id="summaryPage" class="sideBarTask">
                 <img src="./assets/img/summery.svg">
                 <div class="sideBarClickText">Summary</div>
             </div>

@@ -33,7 +33,6 @@ async function buildContactsPage() {
     return finalHtml;
 }
 
-
 /**
  * Builds the contactlist entry in the users list
  * 
@@ -48,7 +47,6 @@ function buildContactListEntry(userData, userId) {
     addUserToList(contactHtml, name);
 }
 
-
 /**
  * builds the user icon as html code
  * 
@@ -60,7 +58,6 @@ function getUserIcons(userInformations) {
     let icon = buildUserIcon(userInitials, userInformations['color'])
     return (icon);
 }
-
 
 /**
  * Sorts the user to the correct list to be sorted by alpahbet
@@ -80,14 +77,12 @@ function addUserToList(html, name) {
     }
 }
 
-
 /**
  * creates a list with all letters of the alphabet. The alphaebetLists is a global var
  */
 function alphabetList() {
     alphabet.forEach(letter => { alphabetLists[letter] = []; })
 }
-
 
 /**
  * checks if a user entry is there for the alphabet letters
@@ -107,8 +102,6 @@ function buildContactListHtml() {
     return (html);
 }
 
-
-
 /**
  * loads the contact information after clicking the user in the users list
  * 
@@ -125,7 +118,6 @@ function loadContactInformations(userId) {
     setTimeout(() => { contactDetailsContainer.classList.add('fly-in'); }, 10);
 }
 
-
 /**
  * loads mobile user data 
  * 
@@ -138,7 +130,6 @@ function buildContactInfoMobile(userId) {
     contactInfoContainer.innerHTML += `<div id='contactMobileActions' class='d-none'></div>`;
 }
 
-
 /**
  * closes the mobile view of contact details and removes details from browser
  */
@@ -148,7 +139,6 @@ function closeContactInfoMobile() {
     document.getElementById('mobileActionBtn').remove();
     document.getElementById('contactMobileActions').remove();
 }
-
 
 /**
  * Deletes a user 
@@ -168,7 +158,6 @@ async function deleteUser(userId) {
 function addNewUserWindow() {
     document.getElementById('addContactOverlay').classList.add('display');
 }
-
 
 /**
  * closes the add new user overlay
@@ -193,7 +182,6 @@ function closeOverlay(elementIdOverlay, elementIdContainer) {
     //window.location.reload();
 }
 
-
 /**
  * Formats the data for a new user to create it in the database
  * 
@@ -215,7 +203,6 @@ async function addNewContact(name, email, phone) {
     users = await getAllUsers();
     return (userId)
 }
-
 
 /**
  * validates the data for a new user
@@ -252,7 +239,6 @@ async function validateAndSubmitForm() {
     }
 }
 
-
 /**
  * resets the form errors that are displayed when the given values are invalid
  */
@@ -267,7 +253,6 @@ function resetFormErrors() {
     });
 }
 
-
 /**
  * creates a random color for the user icon by creating a new user
  * 
@@ -278,7 +263,6 @@ function getRandomUserColor() {
     let radomColor = userColors[random];
     return (radomColor);
 }
-
 
 /**
  * sets new parameter for a existing user
@@ -297,14 +281,12 @@ async function editUser(userId) {
     editUserWindow()
 }
 
-
 /**
  * opens the edit user overlay window
  */
 function editUserWindow() {
     document.getElementById('editContactOverlay').classList.add('display');
 }
-
 
 /**
  * validates the the edit user values
@@ -344,7 +326,6 @@ async function validateAndSubmitEditForm(userId) {
     }
 }
 
-
 function clearNewContactValues() {
     const fields = [
         'inputContactName', 'inputContactEmail', 'inputContactPhone',
@@ -365,7 +346,6 @@ function clearNewContactValues() {
     });
 }
 
-
 /**
  * builds the data json to be send to the database to change a existing user
  * 
@@ -382,7 +362,6 @@ async function editContact(name, email, phone, userId) {
     }
     await updateUserToDb(data, userId);
 }
-
 
 /**
  * builds the data json to be send to the database to create a user that registers himself
@@ -402,7 +381,6 @@ async function registerNewContact(username, email, password) {
     await addUserToDb(data);
 }
 
-
 /**
 * shows the edit user dropdown on mobile view 
  * @param {string} userId - user id to know wich user shall be edited
@@ -413,7 +391,6 @@ function showDropDownContactInfo(userId) {
     document.getElementById('contactMobileActions').innerHTML = html;
     //document.getElementById('contactInfoMobile').addEventListener('click', closeDropDownContactInfo);
 }
-
 
 /**
  * closes the edit user dropdown on mobile view

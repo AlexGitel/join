@@ -85,7 +85,7 @@ function emptyTaskLists() {
  * gets the initials of a user for the usericon by splitting the surname and lastname and takes the first letter
  * 
  * @param {string} userName - Username in database
- * @returns - intials e.g. AM
+ * @returns - intials e.g. G  (Guest)
  */
 function getUserInitials(userName) {
     let names = userName.split(" ");
@@ -304,10 +304,12 @@ function formatDate(date) {
  * 
  * @param {string} taskId - Id of the task that shall be edited
  */
-async function editTask(taskId) {
+async function editTask(taskId, typeName, tasktype) {
     taskData = await getTask(taskId);
-    let html = await getTaskInformations(taskData, taskId);   // buildAddTaskPage();
+    let html = await getTaskInformations(taskData, taskId, typeName, tasktype);
     document.getElementById('boardEditTaskContainer').innerHTML = html;
+
+    await new Promise(r => setTimeout(r, 20));
     setPrio();
     setDateToday();
     buildSubTasks(taskData);
@@ -320,10 +322,10 @@ async function editTask(taskId) {
  * @param {Array} users - An array of user objects, where each object contains information about a user (e.g., name, ID).
  * @returns {HTMLElement} - The constructed edit task form with a dropdown menu of users.
  */
-async function getTaskInformations(taskData, taskId) {
+async function getTaskInformations(taskData, taskId, typeName, tasktype) {
     let allUsers = await getUserNames();
     let userList = buildUserNameDropDown(allUsers);
-    return buildEditTaskContent(userList, taskData, taskId);
+    return buildEditTaskContent(userList, taskData, taskId, typeName, tasktype);
 }
 
 /**
@@ -352,15 +354,39 @@ function buildSubTasks(taskData) {
 
 /**
  * 
- * Closes the overlay
+ * Close the overlay if nothing will be changed
+ * @param {string} elementIdOverlay - html element id of the overlay
+ * @param {string} elementIdContainer - html elemnt id of the overlay container
+ */
+function closeTaskOverlayOnly(elementIdOverlay, elementIdContainer) {
+    const overlay = document.getElementById(elementIdOverlay);
+    const container = document.getElementById(elementIdContainer);
+
+    container.classList.remove('fly-in');
+    container.classList.add('fly-out');
+
+    container.addEventListener('animationend', function handleAnimationEnd() {
+        container.removeEventListener('animationend', handleAnimationEnd);
+
+        overlay.classList.remove('display');
+        container.classList.remove('fly-out');
+        container.classList.add('fly-in');
+    });
+}
+
+/**
+ * 
+ * Close the overlay if something has been changed, deleted or edit
  * @param {string} elementIdOverlay - html element id of the overlay
  * @param {string} elementIdContainer - html elemnt id of the overlay container
  */
 async function closeOpenTaskOverlay(elementIdOverlay, elementIdContainer) {
     let overlay = document.getElementById(elementIdOverlay);
     let element = document.getElementById(elementIdContainer);
+
     element.classList.remove('fly-in');
     element.classList.add('fly-out');
+
     element.addEventListener('animationend', function handleAnimationEnd() {
         overlay.classList.remove('display');
         element.classList.remove('fly-out');

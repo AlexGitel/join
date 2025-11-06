@@ -130,7 +130,7 @@ function showTaskOverlayTemplate(typeName, tasktype, title, description, date, p
                 <div class="editTaskHead"> 
                     <div class="${tasktype} openTaskType">${typeName}</div>
                     <div>
-                        <a onclick="closeOpenTaskOverlay('boardEditTaskOverlay', 'boardEditTaskContainer')" class="editCloseSign cursor"></a>
+                        <a onclick="closeTaskOverlayOnly('boardEditTaskOverlay', 'boardEditTaskContainer')" class="editCloseSign cursor"></a>
                     </div>
                 </div>
 
@@ -158,7 +158,7 @@ function showTaskOverlayTemplate(typeName, tasktype, title, description, date, p
                 <div class="display-flex editActionBtnDiv padTop25">
                     <a onclick="deleteTask('${taskId}')" class="deleteButtonText cursor"></a>
                     <div class="dividingActionBtns"></div>
-                    <a onclick="editTask('${taskId}')" class="editButtonText cursor"></a>
+                    <a onclick="editTask('${taskId}', '${typeName}', '${tasktype}')" class="editButtonText cursor"></a>
                 </div>
             </div>
     `;
@@ -226,10 +226,11 @@ function htmlTaskListHeadLineDone() {
 }
 
 
-function buildEditTaskContent(users, taskData, taskId) {
+function buildEditTaskContent(users, taskData, taskId, typeName, tasktype) {
     return /* html */`
     
         <div class="head-section">
+            <div class="${tasktype} openTaskType">${typeName}</div>
             <div>
                 <a onclick="closeOpenTaskOverlay('boardEditTaskOverlay', 'boardEditTaskContainer')" class="editCloseSign cursor"></a>
             </div>

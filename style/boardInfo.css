@@ -203,13 +203,9 @@
 /* css for boardEditTaskPopUp  -   start */
 .head-section {
     width: 100%;
-    position: fixed;
-    z-index: 5;
     background-color: #FFFFFF;
-    right: 0;
     display: flex;
-    justify-content: flex-end;
-    padding-right: 36px;
+    justify-content: space-between;
 }
 
 .edit-task-container {

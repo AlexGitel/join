@@ -11,13 +11,26 @@ async function buildAddTaskPage() {
 }
 
 
+// function setDateToday() {
+//     let today = new Date();
+//     let yyyy = today.getFullYear();
+//     let mm = String(today.getMonth() + 1).padStart(2, '0'); // Monate von 0-11, daher +1
+//     let dd = String(today.getDate()).padStart(2, '0');
+//     let minDate = `${yyyy}-${mm}-${dd}`;
+//     document.getElementById('due-date').setAttribute('min', minDate);
+// }
+
 function setDateToday() {
+    const dateInput = document.getElementById('due-date');
+    if (!dateInput) return;
+
     let today = new Date();
     let yyyy = today.getFullYear();
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); // Monate von 0-11, daher +1
+    let mm = String(today.getMonth() + 1).padStart(2, '0');
     let dd = String(today.getDate()).padStart(2, '0');
     let minDate = `${yyyy}-${mm}-${dd}`;
-    document.getElementById('due-date').setAttribute('min', minDate);
+
+    dateInput.setAttribute('min', minDate);
 }
 
 
@@ -170,17 +183,30 @@ function trackSelectedContacts() {
     selectedContactsArray = [];
     let selectedHtml = '', selectedCount = 0;
 
-    document.querySelectorAll('.user-checkbox').forEach(checkbox => {
+    // Check if the checkboxes exist
+    const checkboxes = document.querySelectorAll('.user-checkbox');
+    if (!checkboxes.length) return;
+
+    checkboxes.forEach(checkbox => {
         if (checkbox.checked) {
             selectedHtml += getCheckboxOption(checkbox);
             selectedCount++;
         }
     });
 
-    document.getElementById('assigned-to-count').textContent = `${selectedCount} contact${selectedCount !== 1 ? 's' : ''} assigned`;
-    document.getElementById('selected-contacts').innerHTML = selectedHtml;
+    // Ensure that DOM elements are present.
+    const countElement = document.getElementById('assigned-to-count');
+    const selectedElement = document.getElementById('selected-contacts');
 
-    // Add or remove the class based on selection count
+    if (countElement) {
+        countElement.textContent = `${selectedCount} contact${selectedCount !== 1 ? 's' : ''} assigned`;
+    }
+
+    if (selectedElement) {
+        selectedElement.innerHTML = selectedHtml;
+    }
+
+    // Optional: visual highlighting, if the element exists
     const taskRightColumn = document.querySelector('.task-right-column');
     if (taskRightColumn) {
         if (selectedCount > 0) {
@@ -346,9 +372,19 @@ function setUrgent() {
  * Resets the button styles, applies the active state to the "Medium" button,
  * updates its background color to orange, and sets the selected priority to "Medium".
  */
+// function setMedium() {
+//     resetButtonStyles();
+//     const button = document.querySelector('.priority-button.medium');
+//     button.classList.add('active');
+//     button.style.backgroundColor = 'orange';
+//     selectedPriority = 'Medium';
+// }
+
 function setMedium() {
-    resetButtonStyles();
     const button = document.querySelector('.priority-button.medium');
+    if (!button) return;
+
+    resetButtonStyles();
     button.classList.add('active');
     button.style.backgroundColor = 'orange';
     selectedPriority = 'Medium';

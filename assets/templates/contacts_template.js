@@ -10,7 +10,6 @@ function buildContactElementHtml(userIcon, name, email, userId) {
     `;
 }
 
-
 function contactListLetter(letter) {
     return /*html*/ `
         <div class="contactListLetter">
@@ -23,7 +22,6 @@ function contactListLetter(letter) {
         </div> 
     `;
 }
-
 
 function finalContactPage(contactList) {
     return /*html*/ `
@@ -60,7 +58,6 @@ function finalContactPage(contactList) {
     `;
 }
 
-
 function buildContactInfo(iconColor, initials, name, userId, email, phone) {
     return /*html*/ `
         <div class="contactShortInfo display-flex">
@@ -89,12 +86,10 @@ function buildContactInfo(iconColor, initials, name, userId, email, phone) {
     `;
 }
 
-
 function buildUserIconForEdit(iconColor, initials) {
     let html = ` <div style="background-color: ${iconColor}" class="contactsUserIcon">${initials}</div>`
     return html
 }
-
 
 function dropDownContactMobile(userId) {
     return /*html*/`

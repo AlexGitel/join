@@ -178,8 +178,6 @@ function closeOverlay(elementIdOverlay, elementIdContainer) {
     });
     clearNewContactValues();
     resetFormErrors();
-
-    //window.location.reload();
 }
 
 /**
@@ -389,7 +387,6 @@ function showDropDownContactInfo(userId) {
     html = dropDownContactMobile(userId);
     document.getElementById('contactMobileActions').classList.remove('d-none');
     document.getElementById('contactMobileActions').innerHTML = html;
-    //document.getElementById('contactInfoMobile').addEventListener('click', closeDropDownContactInfo);
 }
 
 /**

@@ -121,7 +121,6 @@ function buildUserIcon(initials, color, iconStyle) {
     return /* html */ `<div style="background-color: ${color}" class="taskUserIcon ${iconStyle}">${initials}</div>`;
 }
 
-
 function showTaskOverlayTemplate(typeName, tasktype, title, description, date, prioDiv, userDiv, subTaskDiv, taskId) {
     return /* html */ `
 
@@ -164,7 +163,6 @@ function showTaskOverlayTemplate(typeName, tasktype, title, description, date, p
     `;
 }
 
-
 function showTaskUserList(userIcon, username) {
     return /* html */ `
         <div class="display-flex taskUserDiv">
@@ -173,7 +171,6 @@ function showTaskUserList(userIcon, username) {
         </div>
     `;
 }
-
 
 function showTaskSubTaskElement(statusImg, subTask, taskId, subtaskId) {
     return  /* html */`
@@ -184,7 +181,6 @@ function showTaskSubTaskElement(statusImg, subTask, taskId, subtaskId) {
     `;
 }
 
-
 function prioDivOpenTask(prio, prioImg) {
     return /* html */`
         <div class="align-center display-flex">
@@ -194,14 +190,12 @@ function prioDivOpenTask(prio, prioImg) {
     `;
 }
 
-
 function htmlTaskListHeadLineToDo() {
     return `<div class="boardRubrikHead">
                 <a class="boardRubrikTitle">To do</a>
                 <button onclick="boardAddTask()" class="cursor addSubTaskBtn"></button>
             </div>`
 }
-
 
 function htmlTaskListHeadLineProgress() {
     return `<div class="boardRubrikHead">
@@ -210,7 +204,6 @@ function htmlTaskListHeadLineProgress() {
             </div>`
 }
 
-
 function htmlTaskListHeadLineAwaitFeedback() {
     return `<div class="boardRubrikHead">
                 <a class="boardRubrikTitle">Await feedback</a>
@@ -218,13 +211,11 @@ function htmlTaskListHeadLineAwaitFeedback() {
             </div>`
 }
 
-
 function htmlTaskListHeadLineDone() {
     return `<div class="boardRubrikHead">
                 <a class="boardRubrikTitle">Done</a>
             </div>`
 }
-
 
 function buildEditTaskContent(users, taskData, taskId, typeName, tasktype) {
     return /* html */`

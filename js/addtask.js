@@ -10,16 +10,6 @@ async function buildAddTaskPage() {
     return buildAddTaskDiv(userList);
 }
 
-
-// function setDateToday() {
-//     let today = new Date();
-//     let yyyy = today.getFullYear();
-//     let mm = String(today.getMonth() + 1).padStart(2, '0'); // Monate von 0-11, daher +1
-//     let dd = String(today.getDate()).padStart(2, '0');
-//     let minDate = `${yyyy}-${mm}-${dd}`;
-//     document.getElementById('due-date').setAttribute('min', minDate);
-// }
-
 function setDateToday() {
     const dateInput = document.getElementById('due-date');
     if (!dateInput) return;
@@ -32,7 +22,6 @@ function setDateToday() {
 
     dateInput.setAttribute('min', minDate);
 }
-
 
 /**
  * Initializes the "Add Task" page by populating the assigned-to dropdown.
@@ -50,7 +39,6 @@ async function initializeAddTaskPage() {
         console.error('Element with ID "assigned-to-options" not found during initialization.');
     }
 }
-
 
 /**
  * Retrieves user information and extracts user names, IDs, colors, and initials.
@@ -77,8 +65,6 @@ async function getUserNames() {
     }
     return [users, userIds, userColors, userInitials];
 }
-
-
 
 let selectedPriority = '';
 let selectedContactsArray = [];
@@ -113,7 +99,6 @@ function buildUserNameDropDown(users) {
 
 }
 
-
 /**
  * Updates the visual appearance of a selection based on whether it's checked or not.
  */
@@ -128,7 +113,6 @@ function updateSelectionAppearance(parentOption, isChecked) {
     checkmarkFalse.style.display = isChecked ? 'none' : 'inline-block';
     checkmarkTrue.style.filter = isChecked ? 'brightness(0) invert(1)' : 'none';
 }
-
 
 /**
  * Toggles the selection of a user when their checkbox is clicked.
@@ -146,7 +130,6 @@ function toggleUserSelection(event) {
     trackSelectedContacts();
 }
 
-
 /**
  * Sets up event listeners to change the background color of a user option
  * when the checkbox is checked or unchecked.
@@ -159,7 +142,6 @@ function setupBackgroundColorChange() {
         });
     });
 }
-
 
 /**
  * Retrieves the selected checkbox option and adds the user to the selectedContactsArray.
@@ -174,7 +156,6 @@ function getCheckboxOption(checkbox) {
     selectedContactsArray.push({ id, name: userName });
     return `<span class="selected-User" style="background-color: ${assignEl.style.backgroundColor};">${assignEl.textContent}</span>`;
 }
-
 
 /**
  * Tracks selected contacts and updates the UI accordingly.
@@ -217,7 +198,6 @@ function trackSelectedContacts() {
     }
 }
 
-
 /**
  * Retrieves and returns the dropdown-related elements.
  * @returns {Object} An object containing the dropdown elements.
@@ -230,7 +210,6 @@ function getDropdownElements() {
     return { options, iconDown, iconUp, container };
 }
 
-
 /**
  * Updates the User interface elements to show the dropdown's open state.
  * @param {Object} elements - The dropdown elements.
@@ -240,7 +219,6 @@ function updateDropdownElements({ iconDown, iconUp, container }) {
     iconUp.classList.remove('d-none');
     container.classList.add('changeBorderColor');
 }
-
 
 /**
  * Displays the dropdown and updates elements.
@@ -265,7 +243,6 @@ async function showDropdown() {
     isDropdownOpen = true;
 }
 
-
 /**
  * Toggles the visibility of the dropdown.
  */
@@ -279,7 +256,6 @@ async function toggleContactsDropdown(event) {
     }
 }
 
-
 /**
  * Handles clicks outside the dropdown to close it.
  * @param {Event} event - The click event.
@@ -290,7 +266,6 @@ function handleClickOutside(event) {
         closeDropdown();
     }
 }
-
 
 /**
  * Closes the dropdown and resets UI elements.
@@ -308,7 +283,6 @@ function closeDropdown() {
     isDropdownOpen = false;
 }
 
-
 /**
  * Toggles the visibility of the "Assigned to" dropdown.
  * If the dropdown is opened, it populates user data (if not already loaded),
@@ -324,7 +298,6 @@ function toggleCategoryDropdown() {
     dropdownIconUp.classList.toggle('d-none');
 }
 
-
 /**
  * Updates the displayed task category based on the selected type 
  * and closes the category dropdown.
@@ -339,7 +312,6 @@ function selectCategory(type) {
     toggleCategoryDropdown();
 }
 
-
 /**
  * Resets the styles of all priority buttons.
  * Removes the 'active' class and resets the background color for each button.
@@ -351,7 +323,6 @@ function resetButtonStyles() {
         button.style.backgroundColor = '';
     });
 }
-
 
 /**
  * Sets the priority to "Urgent".
@@ -366,20 +337,11 @@ function setUrgent() {
     selectedPriority = 'Urgent';
 }
 
-
 /**
  * Sets the priority to "Medium".
  * Resets the button styles, applies the active state to the "Medium" button,
  * updates its background color to orange, and sets the selected priority to "Medium".
  */
-// function setMedium() {
-//     resetButtonStyles();
-//     const button = document.querySelector('.priority-button.medium');
-//     button.classList.add('active');
-//     button.style.backgroundColor = 'orange';
-//     selectedPriority = 'Medium';
-// }
-
 function setMedium() {
     const button = document.querySelector('.priority-button.medium');
     if (!button) return;
@@ -389,7 +351,6 @@ function setMedium() {
     button.style.backgroundColor = 'orange';
     selectedPriority = 'Medium';
 }
-
 
 /**
  * Sets the priority to "Low".
@@ -403,7 +364,6 @@ function setLow() {
     button.style.backgroundColor = 'green';
     selectedPriority = 'Low';
 }
-
 
 /**
  * Validates the task submission form.
@@ -422,7 +382,6 @@ function validateForm() {
     createTaskButton.classList.toggle('enabled', isValid);
 }
 
-
 /**
  * Prevents the form from submitting when the Enter key is pressed 
  * if the currently active element has an ID of 'subtasks'.
@@ -438,7 +397,6 @@ function preventEnterSubmit(event) {
     }
 }
 
-
 /**
  * Submits the form by validating input, setting default priority if needed, 
  * saving task data to the database, and resetting the form. 
@@ -452,10 +410,8 @@ function submitForm() {
     const taskData = gatherTaskData();
     addTaskToDb(taskData);
     resetForm();
-
     displayPopupAndRedirect();
 }
-
 
 /**
  * Collects and returns all task data from the form fields as an object.
@@ -479,7 +435,6 @@ function gatherTaskData() {
     };
 }
 
-
 /**
  * Displays a popup briefly, then hides it, loads content, 
  * and redirects the user to the board page.
@@ -497,7 +452,6 @@ function displayPopupAndRedirect() {
     }, 1500);
 }
 
-
 /**
  * Determines the task type based on the selected category text.
  * Returns "technical" for "Technical Task", "userstory" for "User Story",
@@ -509,7 +463,6 @@ function determineTaskType() {
     const typeValue = document.getElementById('selected-category').innerText.trim();
     return typeValue === "Technical Task" ? "technical" : typeValue === "User Story" ? "userstory" : typeValue;
 }
-
 
 /**
  * Resets the task form to its initial state by clearing inputs, 
@@ -528,7 +481,6 @@ function resetForm() {
     resetBackgroundColor();
 }
 
-
 /**
  * Resets the BackgroundColor 
  *
@@ -545,7 +497,6 @@ function resetBackgroundColor() {
     });
 }
 
-
 /**
  * Toggles visibility of subtask action icons.
  * Used when transitioning from adding a subtask to providing action options.
@@ -557,7 +508,6 @@ function showSubtaskActions() {
     document.getElementById('check-icon').classList.remove('d-none');
     document.getElementById('icon-divider').classList.remove('d-none');
 }
-
 
 /**
  * Adds a new subtask to the list if the input is valid, 
@@ -576,13 +526,13 @@ function addSubtask() {
     // showTemporaryMessage('Subtask added successfully!');
     validateForm();
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     const taskForm = document.getElementById('taskForm');
     if (!taskForm) return;
 
     taskForm.addEventListener('keydown', checkForEnterKey);
 });
-
 
 /**
  * Listens for the 'Enter' key press to add a subtask if the input field is focused.
@@ -597,7 +547,6 @@ function checkForEnterKey(event) {
     }
 }
 
-
 /**
  * Resets the subtask input and toggles the user Interface elements.
  * Clears the subtask input field.
@@ -610,7 +559,6 @@ function cancelSubtask() {
     document.getElementById('plus-icon').classList.remove('d-none');
     document.getElementById('subtasks').value = '';
 }
-
 
 /**
  * Collects the current subtask texts and updates the hidden input field.
@@ -626,7 +574,6 @@ function updateSubtaskData() {
     document.getElementById('subtask-data').value = JSON.stringify(subtasks);
     validateForm();
 }
-
 
 /**
  * Creates a button with an image inside.
@@ -645,7 +592,6 @@ function createButton(src, alt, className) {
     button.appendChild(img);
     return button;
 }
-
 
 /**
  * Creates a subtask list item with text, edit, and delete buttons.
@@ -668,7 +614,6 @@ function createSubtaskItem(subtaskTextContent) {
     return listItem;
 }
 
-
 /**
  * Creates a span element for subtask text.
  *
@@ -681,7 +626,6 @@ function createSubtaskText(textContent) {
     subtaskText.textContent = textContent;
     return subtaskText;
 }
-
 
 /**
  * Initiates editing for a subtask by replacing the text with an input field.
@@ -706,7 +650,6 @@ function startEditingSubtask(listItem, subtaskText, editButton, deleteButton) {
     });
 }
 
-
 /**
  * Creates an input field pre-filled with the given text for editing.
  *
@@ -721,7 +664,6 @@ function createEditInput(text) {
     input.style.cssText = 'background-color: white; border: 1px solid #5DBEE7; outline: none; padding: 5px;';
     return input;
 }
-
 
 /**
  * Changes the edit button to a save button with a check icon.
@@ -741,7 +683,6 @@ function setButtonToSave(editButton, listItem, input, subtaskText, deleteButton)
 
     editButton.onclick = () => saveSubtaskText(listItem, input, subtaskText, editButton, deleteButton);
 }
-
 
 /**
  * Saves the edited subtask text and switches the edit button back to the edit mode.

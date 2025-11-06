@@ -159,8 +159,6 @@ function buildAddTaskDiv(users) {
                 </div> 
             </div>
 
-        </form>  
-            
-
+        </form>        
     `;
 }

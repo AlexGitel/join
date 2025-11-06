@@ -1,7 +1,6 @@
 let showPass = false;
 let userDataValid = true;
 
-
 /**
  * for Button Sign Up
  */
@@ -21,7 +20,6 @@ function signUp() {
     }, 1500);
 }
 
-
 /**
  * show signUp form in login page
  */
@@ -30,7 +28,6 @@ function showSignupForm() {
     document.getElementById('signup-form').classList.remove('d-none');
     document.getElementById('for_mobile').classList.add('d-none');
 }
-
 
 /**
  * hide signUp form in login page
@@ -41,7 +38,6 @@ function hideSignupForm() {
     document.getElementById('for_mobile').classList.remove('d-none');
 }
 
-
 /**
  * lock icon, visibility-off-icon in login page
  */
@@ -49,7 +45,6 @@ function hideLockIcon() {
     document.getElementById('lock-icon').classList.add('d-none');
     document.getElementById('visibility-off-icon').classList.remove('d-none');
 }
-
 
 /**
  * lock icon, visibility-off-icon in sign up page
@@ -59,7 +54,6 @@ function hideLockIconSignUpForm() {
     document.getElementById('next-visibility-off-icon').classList.remove('d-none');
 }
 
-
 /**
  * lock icon, visibility-off-icon in sign up page
  */
@@ -67,7 +61,6 @@ function hideLockIconConfirm() {
     document.getElementById('thirth-lock-icon').classList.add('d-none');
     document.getElementById('thirth-visibility-off-icon').classList.remove('d-none');
 }
-
 
 /**
  * change the visibility of login password
@@ -84,7 +77,6 @@ function showHideLogInPassword() {
     }
 }
 
-
 /**
  * change the visibility of sign up password
  */
@@ -99,7 +91,6 @@ function showHideSignUpPassword() {
         mypassword.type = 'password';
     }
 }
-
 
 /**
  * change the visibility of sign up confirmed password
@@ -116,7 +107,6 @@ function showHideConfirmPassword() {
     }
 }
 
-
 /**
  * change icons in login input
  */
@@ -125,7 +115,6 @@ function changeIcons() {
     document.getElementById('visibility-icon').classList.add('d-none');
 }
 
-
 /**
  * change icons, input Sign Up Form
  */
@@ -133,7 +122,6 @@ function changeIconsSignUpForm() {
     document.getElementById('next-visibility-off-icon').classList.remove('d-none');
     document.getElementById('next-visibility-icon').classList.add('d-none');
 }
-
 
 /**
  * change icons, input confirm Password
@@ -177,7 +165,6 @@ async function checkUserCredentials(loginEmail, loginPassword) {
     }
 }
 
-
 /**
  * Marks the logindata fields red and shows a error message
  */
@@ -186,7 +173,6 @@ function setInvalidLoginSettings() {
     document.getElementById('login-email').classList.add('valueNotValid');
     document.getElementById('myPassword').classList.add('valueNotValid');
 }
-
 
 /**
  * saves userinformation in browser storage to show the correct informations
@@ -199,9 +185,7 @@ function loginUserProcess(userArray, index, name) {
     localStorage.setItem('userId', userArray[index]);
     localStorage.setItem('name', name);
     let initals = getUserInitials(localStorage.getItem('name'))
-    //document.getElementById('userIconValueHead').innerHTML = initals;
 }
-
 
 /**
  * starts the registration process by getting the values and checks them. If the are valid, user account is been created
@@ -218,7 +202,6 @@ async function startRegistration(event) {
     await checkIfDataValid(email, password, confirmPassword, username, policyCheckBox);
     if (userDataValid) { addUser(email, password, username) };
 }
-
 
 /**
  * checks in the database if emailadress in registartion process already exists
@@ -242,7 +225,6 @@ async function checkNewUserExists(email) {
     return userExists;
 }
 
-
 /**
  * function to run checks if all provided data by user is valid
  * 
@@ -263,7 +245,6 @@ async function checkIfDataValid(email, password, confirmPassword, username, poli
     checkPolicy(policyCheckBox);
 }
 
-
 /**
  * checks if the give emailadress is a valid email form
  * 
@@ -276,7 +257,6 @@ function checkEmailIsValid(email) {
         userDataValid = false;
     };
 }
-
 
 /**
  * checks if the given email at registration already exists in database
@@ -291,7 +271,6 @@ async function checkEmailIfExists(email) {
         userDataValid = false;
     }
 }
-
 
 /**
  * checks the password and confirm password is the same
@@ -308,7 +287,6 @@ function checkPasswordConfirm(password, confirmPassword) {
     }
 }
 
-
 /**
  * checks if the given password has at least 4 letters
  * 
@@ -323,7 +301,6 @@ function checkPasswordLenght(password) {
     }
 }
 
-
 /**
  * checks if the given username has at leat 4 letters
  * 
@@ -336,7 +313,6 @@ function checkNameIsValid(username) {
         userDataValid = false;
     }
 }
-
 
 /**
  * checks if the policy has been accepted while registration
@@ -351,7 +327,6 @@ function checkPolicy(policyCheckBox) {
         userDataValid = false;
     }
 }
-
 
 /**
  * resets all error messages to default when user restarts the registration process
@@ -372,7 +347,6 @@ function resetRegistrationErrors() {
     document.getElementById('policyCheckBox').classList.add('d-none');
 }
 
-
 /**
  * adds the new user in database and redirects to login page
  * 
@@ -385,7 +359,6 @@ async function addUser(email, password, username) {
     document.getElementById('pop-up-bg').classList.remove('d-none');
     window.location.href = 'login.html';
 }
-
 
 /**
  * allows a Guest user to login and sets the guest state to the browser storage

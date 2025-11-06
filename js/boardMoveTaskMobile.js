@@ -1,7 +1,6 @@
 toDoListArrow = []
 doneListArrow = []
 
-
 /**
  * checks the status and calls a fucntion that adds a move up button in mobile view to move the task to other status
  * 
@@ -28,7 +27,6 @@ function moveTaskDownMobile(status, taskId) {
     if (status === 'await') { moveTaskToMobile(taskId, 'done') }
 }
 
-
 /**
  * This function moves a task to a different List of Tasks
  * 
@@ -38,7 +36,6 @@ async function moveTaskToMobile(taskId, targetList) {
     await updateTaskToDb(taskId, { status: targetList });
     document.getElementById('contentMainPageSite').innerHTML = await getAllTasksFromDataBase();
 }
-
 
 /**
  * adds the mobile button to move the task
@@ -57,7 +54,6 @@ async function checkMobileTaskMoveBtn() {
     }
 }
 
-
 /**
  * checks the status of a task and adds it to a list to stear the up and down buttons
  * 
@@ -68,7 +64,6 @@ function holdTaskStatus(taskId, taskStatus) {
     if (taskStatus === 'todo') { toDoListArrow.push(taskId) }
     if (taskStatus === 'done') { doneListArrow.push(taskId) }
 }
-
 
 /**
  * pause until all tasks are loaded

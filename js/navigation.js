@@ -47,7 +47,6 @@ function setActiveTab(actualTab) {
     });
 }
 
-
 /**
  * Removes the 'tabActive' CSS class from all tabs in both sidebar and navbar.
  */

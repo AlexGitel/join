@@ -11,11 +11,9 @@
     width: 100%;
 }
 
-
 .changeBorderColor {
     border: 1px solid #29ABE2;
 }
-
 
 .dropdown-option {
     display: flex;
@@ -27,7 +25,6 @@
     border-radius: 10px;
 }
 
-
 .dropdown-option label {
     margin: 0;
     font-size: 16px;
@@ -38,7 +35,6 @@
     cursor: pointer;
 }
 
-
 .user-checkbox {
     opacity: 0;
     width: 16px;
@@ -46,7 +42,6 @@
     position: fixed;
     cursor: pointer;
 }
-
 
 .dropdown-options {
     position: absolute;
@@ -65,11 +60,9 @@
     overflow-y: auto;
 }
 
-
 .dropdown-option:hover {
     background-color: #f0f0f0;
 }
-
 
 .dropdown-options-category {
     background-color: #ffffff;
@@ -81,7 +74,6 @@
     z-index: 2;
 }
 
-
 .drop-down-icon-container {
     width: 24px;
     height: 24px;
@@ -92,14 +84,12 @@
     transition: background-color 0.1s ease;
 }
 
-
 .drop-down-icon-container:hover {
     background-color: #D9D9D9;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 .show-options .dropdown-options {
     display: block;
@@ -108,32 +98,26 @@
     gap: 5px;
 }
 
-
 .selected {
     background-color: #e0f7fa;
 }
-
 
 .priority-button img {
     filter: none;
 }
 
-
 .priority-button.active img {
     filter: brightness(0) invert(1);
 }
-
 
 .priority-button.active {
     color: white;
 }
 
-
 .checkmark-true,
 .checkmark-false {
     transition: opacity 0.1s ease;
 }
-
 
 .selected-contacts {
     position: absolute;
@@ -145,7 +129,6 @@
     max-width: 440px;
 }
 
-
 .selected-User {
     display: flex;
     justify-content: center;
@@ -156,7 +139,6 @@
     font-size: 16px;
     border-radius: 50%;
 }
-
 
 .contactsTo-assign {
     width: 50px;
@@ -173,13 +155,11 @@
     overflow: hidden;
 }
 
-
 #subtask-list {
     list-style: none;
     padding: 0;
     position: absolute;
 }
-
 
 .subtask-item::before {
     content: '•';
@@ -189,11 +169,9 @@
     left: 16px;
 }
 
-
 .subtask-item.editing::before {
     content: '';
 }
-
 
 .subtask-item {
     position: relative;
@@ -207,16 +185,13 @@
     cursor: pointer;
 }
 
-
 .subtask-item:hover {
     background-color: #f0f0f0;
 }
 
-
 .subtask-item.editing:hover {
     background-color: white;
 }
-
 
 .subtask-item.editing {
     background-color: white;
@@ -224,12 +199,10 @@
     cursor: pointer;
 }
 
-
 .subtask-item .edit-icon,
 .subtask-item .delete-icon {
     display: inline-block;
 }
-
 
 .subtask-text {
     flex-grow: 1;
@@ -239,7 +212,6 @@
     font-size: 16px;
 }
 
-
 .edit-icon,
 .delete-icon {
     cursor: pointer;
@@ -248,13 +220,11 @@
     transition: opacity 0.3s ease, color 0.3s ease;
 }
 
-
 .subtask-item .edit-icon,
 .subtask-item .delete-icon {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-
 
 .subtask-item:hover .edit-icon,
 .subtask-item:hover .delete-icon {
@@ -262,23 +232,19 @@
     color: #333;
 }
 
-
 .subtask-item.editing .edit-icon,
 .subtask-item.editing .delete-icon {
     opacity: 1;
     color: #333;
 }
 
-
 .subtask-item.editing .edit-icon {
     order: 2;
 }
 
-
 .subtask-item.editing .delete-icon {
     order: 1;
 }
-
 
 .subtask-item.editing .edit-icon {
     order: 2;
@@ -289,34 +255,28 @@
     height: 30px;
 }
 
-
 .edit-icon i,
 .delete-icon i {
     font-size: 14px;
 }
-
 
 .edit-icon {
     border-right: 1.5px solid #333;
     padding-right: 4px;
 }
 
-
 .edit-icon img {
     width: 20px;
     padding-top: 8px;
 }
 
-
 .delete-icon {
     padding-left: 4px;
 }
 
-
 .delete-icon img {
     padding-top: 6px;
 }
-
 
 .edit-input {
     width: 100% !important;
@@ -325,7 +285,6 @@
     border: none !important;
     background-color: #FFFFFF;
 }
-
 
 .popup-sign {
     display: flex;
@@ -338,34 +297,28 @@
     background-color: #2A3647;
     color: #FFFFFF;
     font-size: 20px;
-    font-weight: 400;
     gap: 18px;
-    position: absolute;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    z-index: 15;
 }
-
 
 .animation {
-    position: fixed;
-    z-index: 15;
     animation: taskAdded 1s forwards;
 }
-
 
 @keyframes taskAdded {
 
     0% {
-        bottom: -30%;
-        left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 100%);
     }
 
     100% {
-        bottom: 50%;
-        left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, -50vh);
     }
 }
-
 
 .errorSubtask {
     border: 1px solid #FF001F

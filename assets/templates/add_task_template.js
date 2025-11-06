@@ -98,7 +98,7 @@ function buildAddTaskDiv(users) {
                     
 
                                 <div class="task-input margin">
-                                    <label for="subtasks">Subtasks</label>
+                                    <label for="subtasks">Subtasks<span class="required">*</span></label>
                     
                                     <div class="subtask-wrapper">
                                             <input type="text" id="subtasks" placeholder="Add new subtask" oninput="validateForm()">

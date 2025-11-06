@@ -226,9 +226,12 @@ async function changeSubTaskStatus(taskId, statusImg, subtaskId) {
     } else {
         newStatus = 'done'
     }
+
     subtasks[subtaskId].status = newStatus;
-    data = { "subtasks": subtasks }
-    updateTaskToDb(taskId, JSON.stringify(data));
+
+    const data = { "subtasks": subtasks };
+    // updateTaskToDb(taskId, JSON.stringify(data));
+    await updateTaskToDb(taskId, data);
     updateSubtaskStatusIcon(taskId + subtaskId, newStatus, subtaskId, taskId);
 }
 

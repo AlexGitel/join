@@ -9,8 +9,17 @@ async function openSummaryPage() {
     clearAktiveTabs();
     document.getElementById('contentMainPageSite').innerHTML = await buildSummaryBoard(localStorage.getItem('name'));
     setTimeout(() => setActiveTab('summaryPage'), 100);
-    userGreeting();
-    userGreetingMobile();
+
+    const greetingAlreadyShown = localStorage.getItem('greetingShown') === 'true';
+
+    if (!greetingAlreadyShown) {
+        userGreeting();
+        userGreetingMobile();
+        localStorage.setItem('greetingShown', 'true');
+    } else {
+        document.getElementById('user_container_overlay')?.classList.add('d-none');
+    }
+
     document.getElementById('header').classList.remove('d-none');
     let initals = getUserInitials(localStorage.getItem('name'))
     document.getElementById('userIconValueHead').innerHTML = initals;

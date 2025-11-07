@@ -353,3 +353,86 @@ input[type=date]:invalid::-webkit-datetime-edit {
     align-items: flex-end;
     max-width: 978px;
 }
+
+/* ------------------------------
+   Responsive Add Task Overlay
+   ------------------------------ */
+/* @media (max-width: 1200px) {
+    .boardAddTaskContainer {
+        width: 90%;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .addTaskCloseSign {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        left: auto;
+    }
+
+    .inputs_buttons_container {
+        gap: 80px;
+    }
+
+    .task-input-container {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .task-left-column,
+    .task-right-column {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .required_actions_div {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .boardAddTaskContainer {
+        width: 95%;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .inputs_buttons_container {
+        gap: 60px;
+    }
+
+    .task-form {
+        padding: 60px 10px 0 10px;
+    }
+
+    h1 {
+        font-size: 36px;
+        padding-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .create-task,
+    .clear_button {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .priority-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .priority-buttons button {
+        width: 100%;
+    }
+} */

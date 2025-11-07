@@ -314,8 +314,7 @@ progress {
     display: flex;
     flex-direction: column;
     padding: 40px;
-    max-height: 871px;
-
+    max-height: 90vh;
     z-index: 11;
     overflow: auto;
 }

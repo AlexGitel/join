@@ -53,11 +53,9 @@ function buildAddTaskDiv(users) {
 
                     <div class="task-right-column">
                         <div class="task-input">
-                            <form>
-                                <label for="due-date">Due date<span class="required">*</span></label>
-                                <input class="addTaskInputSpace" type="date" required id="due-date" placeholder="dd/mm/yyyy" oninput="validateForm()">
-                                <span class="error-message" style="display: none; color: red;">This field is required</span>
-                            </form>
+                            <label for="due-date">Due date<span class="required">*</span></label>
+                            <input class="addTaskInputSpace" type="date" required id="due-date" placeholder="dd/mm/yyyy" oninput="validateForm()">
+                            <span class="error-message" style="display: none; color: red;">This field is required</span>
                         </div>
 
                         <div class="task-input priority margin">

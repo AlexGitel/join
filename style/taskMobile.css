@@ -1,8 +1,16 @@
+input,
+textarea,
+select,
+button {
+    font-size: 18px;
+    -webkit-text-size-adjust: 100%;
+}
+
 @media (max-width: 1400px) {
     .addTaskContent {
         display: flex;
         justify-content: center;
-        padding: 80px 0 0 0;
+        padding: 80px 0;
     }
 
     .task-input-container {
@@ -37,8 +45,8 @@
 
     .task-input-container {
         flex-direction: column;
-        overflow: scroll;
-
+        align-items: center;
+        gap: 24px;
     }
 
     .task-separater {
@@ -80,20 +88,13 @@
     }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
 
     .addTaskHeadlineDiv,
     .dropdown-options-category,
     .dropdown-option,
     .selected-contacts,
-    .dropdown-options {
-        max-width: 300px;
-    }
-
-    .dropdown-options {
-        max-width: 300px !important;
-    }
-
+    .dropdown-options,
     .task-left-column,
     .task-right-column,
     .custom-dropdown {
@@ -107,21 +108,23 @@
         font-size: 16px;
     }
 
+    input[type="date"] {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
     .priority-buttons button {
         font-size: 16px;
         gap: 0;
+        width: 95px;
+        height: 41px;
     }
 
     .selected-User {
         width: 30px !important;
         height: 30px !important;
         font-size: 14px !important;
-    }
-
-    .priority-buttons button {
-        width: 95px;
-        height: 41px;
-        gap: 0;
     }
 
     .clear_button {
@@ -138,5 +141,17 @@
     .popup-sign {
         max-width: 280px;
         height: 50px;
+    }
+}
+
+/* --- iOS Safari Fix für Date Input --- */
+@supports (-webkit-touch-callout: none) {
+    input[type="date"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        display: block;
     }
 }

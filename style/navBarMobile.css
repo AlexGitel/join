@@ -11,7 +11,6 @@
     gap: 10px;
 }
 
-
 .navButton {
     width: 80px;
     height: 76px;
@@ -23,16 +22,13 @@
     border-radius: 16px;
 }
 
-
 .navButton:hover {
     background-color: #2A3D59;
 }
 
-
 .d-none {
     display: none;
 }
-
 
 @media(max-width: 1400px) {
     .navBarMobile {

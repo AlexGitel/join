@@ -2,11 +2,9 @@
     font-family: Inter, sans-serif;
 }
 
-
 .help_in_drop_down_box {
     display: none !important;
 }
-
 
 .drop_down_box {
     display: flex;
@@ -19,7 +17,6 @@
     border-radius: 20px 0 20px 20px;
     margin-top: 97px;
 }
-
 
 .link {
     display: flex;
@@ -35,18 +32,15 @@
     padding-left: 16px;
 }
 
-
 .link:hover {
     background-color: #2A3D59;
 }
-
 
 @media(max-width: 1400px) {
     .drop_down_container {
         padding-right: 10px;
         animation: flyInFromRight 0.2s ease-out forwards;
     }
-
 
     @keyframes flyInFromRight {
         from {
@@ -58,12 +52,10 @@
         }
     }
 
-
     .drop_down_box {
         height: 204px;
         margin-top: 68px;
     }
-
 
     .help_in_drop_down_box {
         display: flex !important;

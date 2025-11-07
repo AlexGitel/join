@@ -3,13 +3,11 @@
     margin: 0;
 }
 
-
 body {
     font-family: Inter, sans-serif;
     font-size: 20px;
     font-weight: 400;
 }
-
 
 .addTaskContent {
     display: flex;
@@ -22,18 +20,15 @@ body {
     gap: 64px;
 }
 
-
 h1 {
     font-size: 61px;
     font-weight: 700;
     padding-bottom: 48px;
 }
 
-
 .hidden {
     display: none !important;
 }
-
 
 .task-form {
     padding: 110px 20px 0 70px;
@@ -41,12 +36,10 @@ h1 {
     flex-direction: column;
 }
 
-
 .task-input-container {
     display: flex;
     gap: 48px;
 }
-
 
 .task-left-column,
 .task-right-column {
@@ -55,13 +48,11 @@ h1 {
     width: 440px;
 }
 
-
 .task-separater {
     height: 424px;
     border: 1px solid #D1D1D1;
     margin-top: 20px;
 }
-
 
 ul {
     max-width: 440px;
@@ -73,33 +64,27 @@ ul {
     max-height: 83px;
 }
 
-
 #assigned-to-options {
     display: none;
 }
 
-
 .required {
     color: red;
 }
-
 
 .note_text {
     font-size: 16px;
     width: 100%;
 }
 
-
 .note_text_hidden {
     display: none;
 }
-
 
 .task-input {
     display: flex;
     flex-direction: column;
 }
-
 
 .task-input label,
 .section-label {
@@ -108,17 +93,14 @@ ul {
     color: #2A3647;
 }
 
-
 .margin {
     margin-top: 18px;
 }
-
 
 .addTaskInputSpace {
     margin-bottom: 12px;
     resize: none;
 }
-
 
 .task-input input,
 select,
@@ -131,46 +113,38 @@ textarea {
     cursor: pointer;
 }
 
-
 .task-input input:focus {
     outline: none !important;
     border: 1px solid #29ABE2;
 }
 
-
 .task-input textarea {
     height: 120px;
 }
-
 
 .task-input textarea:focus {
     border: 1px solid #29ABE2;
     outline: none;
 }
 
-
 ::placeholder {
     color: #d1d1d1;
 }
-
 
 /* color of date placeholder (input neads required) */
 input[type=date]:invalid::-webkit-datetime-edit {
     color: #d1d1d1;
 }
 
-
 .priority {
     display: flex;
     flex-direction: column;
 }
 
-
 .priority-buttons {
     display: flex;
     justify-content: space-between;
 }
-
 
 .priority-buttons button {
     display: flex;
@@ -188,16 +162,13 @@ input[type=date]:invalid::-webkit-datetime-edit {
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
 }
 
-
 .priority-buttons button:hover {
     box-shadow: 0 4px 0px rgba(0, 0, 0, 0), 0 6px 8px rgba(0, 0, 0, 0.15) !important;
 }
 
-
 .priority-buttons button img {
     margin-left: 8px;
 }
-
 
 .urgen,
 .low,
@@ -205,14 +176,12 @@ input[type=date]:invalid::-webkit-datetime-edit {
     background-color: white;
 }
 
-
 .actions {
     display: flex;
     gap: 16px;
     width: 100%;
     justify-content: flex-end;
 }
-
 
 .create-task {
     font-size: 21px;
@@ -228,18 +197,15 @@ input[type=date]:invalid::-webkit-datetime-edit {
     transition: background-color 0.1s ease-out;
 }
 
-
 .create-task:disabled {
     cursor: not-allowed;
     background-color: #ccc;
 }
 
-
 .create-task.enabled {
     cursor: pointer;
     background-color: #29ABE2;
 }
-
 
 .create-task.enabled:hover {
     background-color: #29ABE2;
@@ -247,7 +213,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     transition: box-shadow 0.2s;
     transition: background-color 0.2s;
 }
-
 
 .clear_button {
     display: flex;
@@ -263,7 +228,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     font-size: 20px;
 }
 
-
 .clear_button:hover {
     border: 1.7px solid #29ABE2;
     color: #29ABE2;
@@ -277,7 +241,6 @@ input[type=date]:invalid::-webkit-datetime-edit {
     }
 }
 
-
 .subtask-wrapper {
     display: flex;
     align-items: center;
@@ -286,13 +249,11 @@ input[type=date]:invalid::-webkit-datetime-edit {
     position: relative;
 }
 
-
 .icon-wrapper {
     position: absolute;
     right: 12px;
     cursor: pointer;
 }
-
 
 .add-subtask {
     display: flex;
@@ -304,11 +265,9 @@ input[type=date]:invalid::-webkit-datetime-edit {
     cursor: pointer;
 }
 
-
 .add-subtask:hover {
     background-color: #D9D9D9;
 }
-
 
 .hidden-action-icons {
     display: flex;
@@ -317,14 +276,12 @@ input[type=date]:invalid::-webkit-datetime-edit {
     right: 16px;
 }
 
-
 .icon-divider {
     height: 20px;
     border: none;
     border-right: 1.5px solid #000;
     margin: 0 4px;
 }
-
 
 .close-done-icons {
     display: flex;
@@ -335,104 +292,19 @@ input[type=date]:invalid::-webkit-datetime-edit {
     border-radius: 50%;
 }
 
-
 .close-done-icons:hover {
     background-color: #D9D9D9;
 }
-
 
 .inputs_buttons_container {
     display: flex;
     flex-direction: column;
     gap: 140px;
+    padding-bottom: 30px;
 }
-
 
 .required_actions_div {
     display: flex;
     align-items: flex-end;
     max-width: 978px;
 }
-
-/* ------------------------------
-   Responsive Add Task Overlay
-   ------------------------------ */
-/* @media (max-width: 1200px) {
-    .boardAddTaskContainer {
-        width: 90%;
-        height: auto;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .addTaskCloseSign {
-        position: absolute;
-        top: 24px;
-        right: 24px;
-        left: auto;
-    }
-
-    .inputs_buttons_container {
-        gap: 80px;
-    }
-
-    .task-input-container {
-        flex-direction: column;
-        gap: 32px;
-    }
-
-    .task-left-column,
-    .task-right-column {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .required_actions_div {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-    }
-
-    .actions {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .boardAddTaskContainer {
-        width: 95%;
-        padding: 20px;
-        border-radius: 20px;
-    }
-
-    .inputs_buttons_container {
-        gap: 60px;
-    }
-
-    .task-form {
-        padding: 60px 10px 0 10px;
-    }
-
-    h1 {
-        font-size: 36px;
-        padding-bottom: 24px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .create-task,
-    .clear_button {
-        width: 100%;
-        font-size: 18px;
-    }
-
-    .priority-buttons {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .priority-buttons button {
-        width: 100%;
-    }
-} */

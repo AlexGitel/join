@@ -5,7 +5,6 @@ body {
     background-color: #F6F7F8;
 }
 
-
 .sideBar {
     background-color: rgb(42, 54, 71);
     width: 232px;
@@ -18,19 +17,16 @@ body {
     justify-content: space-between;
 }
 
-
 .img_section_div {
     display: flex;
     flex-direction: column;
     gap: 128px;
 }
 
-
 .sideBarImg {
     height: 121px;
     width: auto;
 }
-
 
 .sideBarTask {
     display: flex;
@@ -42,11 +38,9 @@ body {
     align-items: center;
 }
 
-
 .sideBarTask:hover {
     background-color: #2A3D59;
 }
-
 
 .sideBarSectionList {
     height: 229px;
@@ -55,14 +49,12 @@ body {
     justify-content: space-between;
 }
 
-
 .sideBarLinksDiv {
     display: flex;
     flex-direction: column;
     gap: 4px;
     align-items: flex-start;
 }
-
 
 .sideBarLinks {
     height: 35px;
@@ -72,12 +64,10 @@ body {
     justify-content: flex-start;
 }
 
-
 .sideBarLinks:hover {
     color: #29ABE2;
     font-weight: 700;
 }
-
 
 .sideBarClickText {
     display: flex;
@@ -88,7 +78,6 @@ body {
     color: #CDCDCD;
     text-decoration: none;
 }
-
 
 .topBar {
     height: 96px;
@@ -105,11 +94,9 @@ body {
     z-index: 10;
 }
 
-
 .headerText {
     font-size: 20px;
 }
-
 
 .mainPageRight {
     display: flex;
@@ -117,7 +104,6 @@ body {
     width: 100%;
     padding-left: 232px;
 }
-
 
 .topBarIcons {
     display: flex;
@@ -127,7 +113,6 @@ body {
     height: 56px;
     gap: 16px;
 }
-
 
 .userIcon {
     height: 56px;
@@ -142,12 +127,10 @@ body {
     font-size: 20px;
 }
 
-
 .userIcon:hover {
     background-color: rgba(12, 46, 98, 0.12);
 
 }
-
 
 .contentMainPage {
     background-color: #F6F7F8;
@@ -156,33 +139,27 @@ body {
     padding-left: 232px;
 }
 
-
 .cursor {
     cursor: pointer;
 }
-
 
 .questionIcon {
     width: 20px;
     height: 20px;
 }
 
-
 .questionIcon:hover {
     height: 24px;
     width: 24px;
 }
 
-
 .tabActive {
     background-color: #091931;
 }
 
-
 .tabActive:hover {
     background-color: #091931 !important;
 }
-
 
 .drop_down_container {
     display: flex;
@@ -196,11 +173,9 @@ body {
     height: 100vh;
 }
 
-
 .d-none {
     display: none;
 }
-
 
 @media(max-width: 1400px) {
 
@@ -208,7 +183,6 @@ body {
     .headerText {
         display: none;
     }
-
 
     .topBar {
         width: 100%;
@@ -218,18 +192,15 @@ body {
         height: 80px;
     }
 
-
     .topBar img {
         display: flex;
         width: 32px;
         height: 39px;
     }
 
-
     .topBarIcons img {
         display: none;
     }
-
 
     .contentMainPage {
         padding-left: 0;
@@ -238,7 +209,6 @@ body {
         padding-top: 80px;
     }
 }
-
 
 @media (max-width: 600px) {
 

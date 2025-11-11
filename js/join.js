@@ -207,7 +207,7 @@ async function openLegalInNewTab() {
 function checkIfValidLogin() {
     let session = localStorage.getItem('activeUserStatus');
     if (session === 'false') {
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
     }
 }
 

@@ -5,5 +5,5 @@ function logoutUser() {
     localStorage.setItem('activeUserStatus', 'false');
     localStorage.setItem('userId', '');
     localStorage.setItem('name', '');
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }

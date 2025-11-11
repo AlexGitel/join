@@ -357,7 +357,7 @@ function resetRegistrationErrors() {
 async function addUser(email, password, username) {
     await registerNewContact(username, email, password);
     document.getElementById('pop-up-bg').classList.remove('d-none');
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 /**

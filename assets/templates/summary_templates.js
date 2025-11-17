@@ -71,14 +71,14 @@ function buildSummaryPage(tasksToDo, tasksDone, tasksUrgent, taskDeadline, tasks
             </div>
 
             <div class="user_container">
-                <p id="userGreeting" class="greeting">Good morning</p>
+                <p id="userGreeting" class="greeting">${getGreetingText()}</p>
                 <p id="greetingsName" class="currentUserName" style="color: #29ABE2;">${userName}</p>
             </div>
         </div>
 
         <!--- for mobile only - start overlay --->
         <div id="user_container_overlay" class="user_container_overlay">
-            <p id="userGreetingMobile" class="greetingMobile">Good morning</p>
+            <p id="userGreetingMobile" class="greetingMobile">${getGreetingText()}</p>
             <p id="greetingsNameMobile" class="currentUserNameMobile" style="color: #29ABE2;">${userName}</p>
         </div>
 
